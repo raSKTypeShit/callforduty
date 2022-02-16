@@ -52,16 +52,13 @@ include "retrieve_session_vars.php";
 
 if (isset($event) && $event == 4) {
     if (count($qst) > 0 && isset($basic)) {
-        //Create form
-        $sql = "INSERT INTO form (userID) VALUES (1)";
-
+        //Inset base info
+        $sql = "INSERT INTO annonser (userID, title, COLOR, descr, area) 
+        VALUES (" . 1 /* Placeholder */ . ", '" . $basic[$types[0]] . "', '" . $basic[$types[1]] . "', '" . $basic[$types[2]] . "', '" . $basic[$types[4]] . "');";
+        
         if (mysqli_query($conn, $sql)) {$formNR = mysqli_insert_id($conn);
         } else { echo "Error: " . $sql . "<br>" . mysqli_error($conn);}
 
-        //Inset base info
-        $sql = "INSERT INTO baseINFO (formNR, title, COLOR, descr, area) 
-        VALUES (" . $formNR . ", '" . $basic[$types[0]] . "', '" . $basic[$types[1]] . "', '" . $basic[$types[2]] . "', '" . $basic[$types[4]] . "');";
-        
         //Insert all keywords
         $keywords = explode(", ", $basic[$types[3]]);
         
