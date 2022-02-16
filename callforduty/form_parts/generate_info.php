@@ -2,7 +2,7 @@
 
 $formNR = intval($_GET["formNR"]);
 
-$sql = "SELECT title, descr, COLOR, area FROM baseINFO WHERE formNR=" . $formNR;
+$sql = "SELECT title, descr, COLOR, area FROM annonser WHERE id=" . $formNR;
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 1) {
