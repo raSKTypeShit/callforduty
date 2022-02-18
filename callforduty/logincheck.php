@@ -1,12 +1,4 @@
-<?php
-    session_start();
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "callforduty";
-    $conn = mysqli_connect($servername, $username, $password, $database);
-   
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +9,7 @@
 </head>
 <body>
     <?php
+    include "include/connect.php";
     if(isset($_POST["user"])&& isset($_POST["password"])){
         $user=$_POST["user"];
         $pass=$_POST["password"];
