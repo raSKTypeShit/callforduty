@@ -45,6 +45,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                 die();
             }
          }
+        }
          mysqli_close($conn);
          ?>
      </body>
