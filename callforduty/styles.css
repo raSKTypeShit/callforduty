@@ -182,6 +182,12 @@ form > .question > label {
     width: 100%;
 }
 
+form > .mail {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    justify-content: center;
+}
+
 form > .question > div {
     width: 100%;
     display: grid;
