@@ -62,6 +62,8 @@ if (isset($event) && $event == 4) {
         //Insert all keywords
         $keywords = explode(", ", $basic[$types[3]]);
         
+        $sql = "";
+
         for ($x = 0; $x < count($keywords); $x+=1) {
             $sql .= "INSERT INTO keywords (formNR, keyword) VALUES(" . $formNR . ", '" . $keywords[$x] . "');";
         }
@@ -75,7 +77,7 @@ if (isset($event) && $event == 4) {
         //Insert all questions
         for ($x = 0; $x < count($qst); $x+=1) {
             
-            $sql = "INSERT INTO containers (formNR, question, qtype) VALUES (" . $formNR . ", '" . $qst[$x] . "', " . $qst_type[$x] . ");";
+            $sql = "INSERT INTO containers (formNR, question, qtype, NR) VALUES (" . $formNR . ", '" . $qst[$x] . "', " . $qst_type[$x] . ", " . $x . ");";
 
             if (mysqli_query($conn, $sql)) {$containerNR = mysqli_insert_id($conn);
             } else { echo "Error: " . $sql . "<br>" . mysqli_error($conn);}
@@ -95,7 +97,7 @@ if (isset($event) && $event == 4) {
 
         }
         include "unset_session_vars.php";
-        header("Location: index.php");
+        //header("Location: index.php");
         exit();
     } else {
         echo '<h2 style="background-color:var(--neg);">Noen verdier er ikke fylt ut</h2>'; 
