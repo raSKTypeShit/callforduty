@@ -1,8 +1,9 @@
 <?php
-$sql = "SELECT id, question, qtype FROM containers WHERE formNR=" . $formNR;
+$sql = "SELECT id, question, qtype FROM containers WHERE formNR=" . $formNR . " ORDER BY NR ASC";
 $result = mysqli_query($conn, $sql);
 
 echo "<section><form>";
+echo "<div class='mail'><label>Mail</label><input type='mail' name='email' placeholder='Eksempel: søt.bestemor@gmail.com'></div>";
 
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
