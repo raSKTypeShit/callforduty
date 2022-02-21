@@ -14,8 +14,8 @@
             $mail=$_POST["mail"];
             $pass=$_POST["password"];
             $result="SELECT * FROM login
-                    WHERE \"$name\"=name AND
-                    \"$mail\"=mail";
+                    WHERE user=\"$name\" AND
+                    mail =\"$mail\" ";
             $check=mysqli_query($conn,$result);
             //sjekker om det eksistere en bruker med samme bedrift og mail
             if(mysqli_num_rows($check)==1){
@@ -27,7 +27,7 @@
 
                 $sql="INSERT INTO login (user,mail,password) Values
                 (\"$name\",\"$mail\",\"$pass\")";
-            $r=mysqli_query($conn,$sql);
+                $r=mysqli_query($conn,$sql);
             
             if(isset($r)){
                 echo "Bruker laget";
