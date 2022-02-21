@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
      <head>
@@ -7,7 +6,7 @@
      </head>
      <body>
          <?php
-         include "include/connect.php";
+          include "include/connect.php";
          //sjekker om det finnes data i inputene.
          if(isset($_POST["name"]) && isset($_POST["mail"])&& isset($_POST["password"])){ 
             $name=$_POST["name"];
@@ -15,7 +14,7 @@
             $pass=$_POST["password"];
             $result="SELECT * FROM login
                     WHERE user=\"$name\" AND
-                    mail =\"$mail\" ";
+                    mail=\"$mail\" ";
             $check=mysqli_query($conn,$result);
             //sjekker om det eksistere en bruker med samme bedrift og mail
             if(mysqli_num_rows($check)==1){
@@ -27,8 +26,7 @@
 
                 $sql="INSERT INTO login (user,mail,password) Values
                 (\"$name\",\"$mail\",\"$pass\")";
-                $r=mysqli_query($conn,$sql);
-            
+            $r=mysqli_query($conn,$sql);
             if(isset($r)){
                 echo "Bruker laget";
                 header("refresh:2; url=index.php");
@@ -44,5 +42,5 @@
         }
          mysqli_close($conn);
          ?>
-    </body>
+     </body>
 </html>
