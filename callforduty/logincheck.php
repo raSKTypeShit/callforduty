@@ -1,12 +1,4 @@
-<?php
-    session_start();
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "callforduty";
-    $conn = mysqli_connect($servername, $username, $password, $database);
-   
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +8,9 @@
     <title>Document</title>
 </head>
 <body>
+    
     <?php
+    include "include/connect.php";
     if(isset($_POST["user"])&& isset($_POST["password"])){
         $user=$_POST["user"];
         $pass=$_POST["password"];
@@ -26,17 +20,17 @@
         AND password=\"$pass\" ";
 
         $r=mysqli_query($conn,$sql);
-        if(isset($r)){
+        if(mysqli_num_rows($r)==1){
             $_SESSION["user"]=$user;
             echo "Welcome ". $_SESSION["user"];
         }
-    }
         else{
             session_destroy();
             echo "Wrong username or password, please try again!";
             
             
         }
+    }
         header("refresh:2; url=index.php");
         die();
         ?>
