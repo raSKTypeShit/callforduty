@@ -1,10 +1,4 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "callforduty";
-$conn = mysqli_connect($servername, $username, $password, $database);
-?>
+
 <!DOCTYPE html>
 <html lang="en">
      <head>
@@ -13,6 +7,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
      </head>
      <body>
          <?php
+         include "include/connect.php";
          //sjekker om det finnes data i inputene.
          if(isset($_POST["name"]) && isset($_POST["mail"])&& isset($_POST["password"])){ 
             $name=$_POST["name"];
@@ -33,6 +28,7 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                 $sql="INSERT INTO login (user,mail,password) Values
                 (\"$name\",\"$mail\",\"$pass\")";
             $r=mysqli_query($conn,$sql);
+            
             if(isset($r)){
                 echo "Bruker laget";
                 header("refresh:2; url=index.php");
@@ -45,7 +41,8 @@ $conn = mysqli_connect($servername, $username, $password, $database);
                 die();
             }
          }
+        }
          mysqli_close($conn);
          ?>
-     </body>
+    </body>
 </html>
