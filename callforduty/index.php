@@ -17,6 +17,7 @@
           echo "<section>";
           echo "HELLO ". $_SESSION["user"];
           echo "<a href="."logout.php".">logout</a>";
+          echo "<a href="."form_generator-php".">Lag søknader</a>";
           echo "<a href="."deleteuser.php".">Delete user </a>";
           echo "</section>";
           
