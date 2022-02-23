@@ -14,17 +14,18 @@
     if(isset($_POST["user"])&& isset($_POST["password"])){
         $user=$_POST["user"];
         $pass=$_POST["password"];
-
         $sql="SELECT * FROM login
-        WHERE user=\"$user\"
-        AND password=\"$pass\" ";
+        WHERE user=\"$user\"";
         
         $r=mysqli_query($conn,$sql);
         if(mysqli_num_rows($r)==1){
             $row= mysqli_fetch_assoc($r);
-            $_SESSION["user"]=$user;
-            $_SESSION["id"]=$row["id"];
-            echo "Welcome ". $_SESSION["user"];
+            //sjekker om passord stemmer med hashing
+            if(password_verify($pass,$row["password"])){  
+                $_SESSION["user"]=$user;
+                $_SESSION["id"]=$row["id"];
+                echo "Welcome ". $_SESSION["user"];
+            }
         }
         else{
             session_destroy();

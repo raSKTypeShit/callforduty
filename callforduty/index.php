@@ -16,7 +16,7 @@
           echo "<section>";
           echo "<p>HELLO ". $_SESSION["user"]."</p>";
           echo "<a href="."logout.php".">logout</a>";
-          echo "<a href="."form_generator-php".">Lag søknader</a>";
+          echo "<a href="."form_generator.php".">Lag søknader</a>";
           echo "<a href="."deleteuser.php".">Delete user </a>";
           echo "</section>";
           
@@ -31,7 +31,6 @@
     ?>
     </nav>
     <?php include "include/annonseviewer.php";
-    mysqli_close($conn);
     ?>
 </body>
 </html>
