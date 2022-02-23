@@ -10,12 +10,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav>
     <?php
-      
-
       if(isset($_SESSION["user"])){
           echo "<section>";
-          echo "HELLO ". $_SESSION["user"];
+          echo "<p>HELLO ". $_SESSION["user"]."</p>";
           echo "<a href="."logout.php".">logout</a>";
           echo "<a href="."form_generator-php".">Lag søknader</a>";
           echo "<a href="."deleteuser.php".">Delete user </a>";
@@ -30,10 +29,10 @@
           }
           
     ?>
-    <?php include "include/annonseviewer.php";?>
+    </nav>
+    <?php include "include/annonseviewer.php";
+    mysqli_close($conn);
+    ?>
 </body>
 </html>
 
-<?php
-    mysqli_close($conn);
-?>

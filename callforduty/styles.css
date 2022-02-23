@@ -78,6 +78,25 @@ body > main > section {
     justify-content: center;
     row-gap: 10px;
 }
+body > nav > section{
+    display:flex;
+    align-items: flex-start;
+    flex-direction: column; 
+}
+body>nav>section>a{
+    font-family:'Press Start 2P', cursive;
+    font-size: larger;
+    margin:4px;
+    background-color: rgb(195, 198, 202); 
+}
+body>nav>section>a:hover{
+    font-size: 30px;
+    background-color:rgb(195, 198, 202);
+    color:black;
+}
+body>nav>section>p{
+    background-color: rgb(195, 198, 202);
+}
 
 body > main > section > h3 {
     background-color: var(--button);

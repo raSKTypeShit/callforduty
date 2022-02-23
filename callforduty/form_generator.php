@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-session_start();
+//session_start();
 include "include/connect.php";
 include "form_parts/event_handler.php";
 ?>

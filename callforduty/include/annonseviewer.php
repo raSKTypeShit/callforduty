@@ -1,7 +1,7 @@
 <section id="annonseviewer">
     <?php
 
-    include "connect.php";
+    //include "connect.php";
 
     $sql = "SELECT * FROM annonser";
     $result = mysqli_query($conn, $sql);

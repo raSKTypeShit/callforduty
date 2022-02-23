@@ -1,11 +1,6 @@
 
 <?php
-session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "callforduty" ;
-$conn = mysqli_connect($servername, $username, $password, $database);
+include "include/connect.php";
 
 //Confirmation if user actually wants to delete user
 if(!isset($_POST["question"])){
