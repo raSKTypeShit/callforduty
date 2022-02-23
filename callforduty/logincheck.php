@@ -18,10 +18,12 @@
         $sql="SELECT * FROM login
         WHERE user=\"$user\"
         AND password=\"$pass\" ";
-
+        
         $r=mysqli_query($conn,$sql);
         if(mysqli_num_rows($r)==1){
+            $row= mysqli_fetch_assoc($r);
             $_SESSION["user"]=$user;
+            $_SESSION["id"]=$row["id"];
             echo "Welcome ". $_SESSION["user"];
         }
         else{
