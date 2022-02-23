@@ -1,0 +1,196 @@
+:root {
+    --background_body: #c8f3ff;
+    --background_main: #F6F6F6;
+    --background_section: #fafafa;
+    --background_input: #e6e6e6;
+    --background_question: hsl(0, 0%, 100%);
+
+    --border: #E8E8E8;
+    --border_focus: #c0c0c0;
+    --button: #00B9F2;
+    --hover: #d6d434;
+
+    --h2: #50af34;
+
+    --text_dark: black;
+    --text_light: white;
+
+    --pos: lime;
+    --poshover: rgb(0, 177, 53);
+
+    --neg: red;
+    --neghover: rgb(184, 2, 2);
+}
+
+
+* {
+    /*font-size: 10px;
+    font-family: 'Press Start 2P', cursive;*/
+    font-family: "Calibri";
+    font-size: 14px;
+    border-radius: 3px;
+    margin: 0;
+}
+
+body {
+    background-color: var(--background_body);
+    background-image: url("form_parts/windows98.png");
+
+}
+
+body > main {
+    box-shadow: 10px 10px 0px var(--border);
+    width: 40%;
+    min-width: 400px;
+    margin: auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: var(--background_main);
+    border-radius: 5px;
+    padding: 20px;
+    row-gap: 20px;
+}
+
+body > main > h2 {
+    width: 90%;
+    text-align: center;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: var(--text_light);
+    background-color: var(--h2);
+    border-bottom: 2px solid var(--border);
+    font-size: 15px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body > main > section {
+    width: 90%;
+    background-color: var(--background_section);
+    border-bottom: 2px solid var(--border);
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 10px;
+}
+
+body > main > section > h3 {
+    background-color: var(--button);
+    color: var(--text_light);
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+body > main > section > p {
+    width: 100%;
+}
+
+body > main > section > address {
+    width: 100%;
+    display: flex;
+
+}
+
+body > main > section > address > p {
+    border-radius: 20px;
+    padding: 5px;
+    color: var(--text_light);
+    background-color: var(--button);
+    font-style: normal;
+}
+
+
+body > main > section > form {
+    width: 90%;
+    min-width: 350px;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 5fr;
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+body > main > section > form > div {
+    grid-column-start: 1;
+    grid-column-end: 3;
+
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 3fr 2fr;
+    row-gap: 10px;
+    column-gap: 10px;
+
+    padding: 10px;
+    border-bottom: 2px solid var(--border);
+
+    background-color: var(--background_question);
+}
+
+input, textarea, select {
+    outline: none;
+}
+
+textarea, select {
+    resize: none;
+    border: 2px solid var(--border);
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid var(--border);
+}
+
+.optionquestion, input[type=submit] {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+input[type=submit] {
+    background-color: var(--button);
+    color: var(--text_light);
+    padding: 10px;
+    border-bottom: 2px solid var(--border);
+    transition: 0.2s;
+
+}
+
+input[type=submit]:hover {
+    background-color: var(--hover);
+    transform: scale(1.04);
+    transition: 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--border_focus);
+}
+
+
+form > .question {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form > .question > label {
+    font-weight: bold;
+    width: 100%;
+}
+
+form > .mail {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    justify-content: center;
+}
+
+form > .question > div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
