@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+    
     <?php
     include "include/connect.php";
     if(isset($_POST["user"])&& isset($_POST["password"])){
@@ -19,17 +20,17 @@
         AND password=\"$pass\" ";
 
         $r=mysqli_query($conn,$sql);
-        if(isset($r)){
+        if(mysqli_num_rows($r)==1){
             $_SESSION["user"]=$user;
             echo "Welcome ". $_SESSION["user"];
         }
-    }
         else{
             session_destroy();
             echo "Wrong username or password, please try again!";
             
             
         }
+    }
         header("refresh:2; url=index.php");
         die();
         ?>

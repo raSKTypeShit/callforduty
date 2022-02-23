@@ -1,9 +1,9 @@
 <?php
     $host = "localhost";
     $usr = "root";
-    $pass = "root";
-    $db = "";
-
+    $pass = "";
+    $db = "callforduty";
+    session_start();
     $conn = mysqli_connect($host, $usr, $pass, $db);
 
     if(!$conn)
@@ -19,7 +19,25 @@
     <title>Call for Duty</title>
 </head>
 <body>
-    
+    <?php
+      
+
+      if(isset($_SESSION["user"])){
+          echo "<section>";
+          echo "HELLO ". $_SESSION["user"];
+          echo "<a href="."logout.php".">logout</a>";
+          echo "<a href="."deleteuser.php".">Delete user </a>";
+          echo "</section>";
+          
+      }
+      else{
+          echo "<section>
+          <a href="."login.php"."> Login</a>";
+          echo "<a href="."signup.php".">Create a user</a>
+          </section>";
+          }
+          
+    ?>
 </body>
 </html>
 
