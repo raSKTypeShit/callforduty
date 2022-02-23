@@ -6,7 +6,7 @@ include "form_parts/event_handler.php";
 ?>
 <html>
     <head>
-        <title>Form generator</title>
+        <title>Call for duty - Form generator</title>
         <meta charser="UTF-8">
         <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">

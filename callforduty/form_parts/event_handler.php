@@ -1,6 +1,8 @@
 <?php
 include "retrieve_vars_set_basic.php";
 
+$userID = $_SESSION["id"];
+
 //Event triggered
 if (isset($_POST["event"])) {
     $event = $_POST["event"];
@@ -54,7 +56,7 @@ if (isset($event) && $event == 4) {
     if (count($qst) > 0 && isset($basic)) {
         //Inset base info
         $sql = "INSERT INTO annonser (userID, title, COLOR, descr, area) 
-        VALUES (" . 1 /* Placeholder */ . ", '" . $basic[$types[0]] . "', '" . $basic[$types[1]] . "', '" . $basic[$types[2]] . "', '" . $basic[$types[4]] . "');";
+        VALUES (" . $userID . ", '" . $basic[$types[0]] . "', '" . $basic[$types[1]] . "', '" . $basic[$types[2]] . "', '" . $basic[$types[4]] . "');";
         
         if (mysqli_query($conn, $sql)) {$formNR = mysqli_insert_id($conn);
         } else { echo "Error: " . $sql . "<br>" . mysqli_error($conn);}

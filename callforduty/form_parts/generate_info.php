@@ -4,19 +4,21 @@ include "./include/color_functions.php";
 
 $formNR = intval($_GET["formNR"]);
 
-$sql = "SELECT title, descr, COLOR, area FROM annonser WHERE id=" . $formNR;
+$sql = "SELECT userID, title, descr, COLOR, area FROM annonser WHERE id=" . $formNR;
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
 
+    $sql3 = "SELECT user FROM login WHERE id = " . $row["userID"];
+    $username = mysqli_fetch_assoc(mysqli_query($conn, $sql3))["user"];
+
     $rgb = convert_hex_to_rgb_list($row["COLOR"]);
-    var_dump($rgb);
     $bright = brighten($rgb, 0.1);
 
     echo "<h2>" . $row["title"] . "</h2>";
     echo "<section><h3>Beskrivelse av jobb</h3><p>" . $row["descr"] . "</p>
-    <address><p>Lokasjon: " . $row["area"] . "</p></address></section>";
+    <address><p>Lokasjon: " . $row["area"] . "</p><p>Bedrift: " . $username . "</p></address></section>";
 
 
     echo "<style>
@@ -28,7 +30,6 @@ if (mysqli_num_rows($result) == 1) {
     }
     </style>";
 
-    var_dump($rgb);
 
 } else { echo "0 results"; }
 
