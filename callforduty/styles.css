@@ -30,6 +30,7 @@
     font-size: 14px;
     border-radius: 3px;
     margin: 0;
+    text-decoration: none;
 }
 
 body {
@@ -227,7 +228,7 @@ form > .question > div {
     background-color: rgb(85, 170, 170);
 }
 
-#annonseviewer > article {
+#annonseviewer > a > article {
     width: 20vw;
     height: 20vw;
     border-top: 2px solid white;
@@ -241,7 +242,8 @@ form > .question > div {
     margin-bottom: 5%;
 }
 
-#annonseviewer > article > h1 {
+#annonseviewer > a > article > h1 {
+    font-size: x-large;
     margin-top: 0;
     padding-left: 5%;
     color: white;
@@ -250,7 +252,7 @@ form > .question > div {
     grid-row: 1 / 2;
 }
 
-#annonseviewer > article > p {
+#annonseviewer > a > article > p {
     margin-top: 0;
     margin-bottom: 5%;
     margin-left: 5%;
