@@ -38,6 +38,7 @@
           }
           
     ?>
+    <?php include "include/annonseviewer.php";?>
 </body>
 </html>
 
