@@ -11,12 +11,14 @@
 </head>
 <body>
     <nav>
-    <?php
+        <p> Menu</p>
+        <?php
       if(isset($_SESSION["user"])){
           echo "<section>";
           echo "<p>HELLO ". $_SESSION["user"]."</p>";
-          echo "<a href="."logout.php".">logout</a>";
+          echo "<a href="."profile_page.php".">Profil</a>";
           echo "<a href="."form_generator.php".">Lag søknader</a>";
+          echo "<a href="."logout.php".">logout</a>";
           echo "<a href="."deleteuser.php".">Delete user </a>";
           echo "</section>";
           

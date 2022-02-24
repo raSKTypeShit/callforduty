@@ -15,7 +15,7 @@
         $user=$_POST["user"];
         $pass=$_POST["password"];
         $sql="SELECT * FROM login
-        WHERE user=\"$user\"";
+        WHERE user=\"$user\" ";
         
         $r=mysqli_query($conn,$sql);
         if(mysqli_num_rows($r)==1){
