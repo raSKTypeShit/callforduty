@@ -4,6 +4,7 @@
     --background_section: #fafafa;
     --background_input: #e6e6e6;
     --background_question: hsl(0, 0%, 100%);
+    --background_article: #FFFFFF;
 
     --border: #E8E8E8;
     --border_focus: #c0c0c0;
@@ -33,13 +34,13 @@
     text-decoration: none;
 }
 
-body {
+.form_body {
     background-color: var(--background_body);
     background-image: url("form_parts/windows98.png");
 
 }
 
-body > main {
+.form_body > main {
     box-shadow: 10px 10px 0px var(--border);
     width: 40%;
     min-width: 400px;
@@ -55,7 +56,129 @@ body > main {
     row-gap: 20px;
 }
 
-body > main > h2 {
+.profile_page {
+    background-color: var(--background_body);
+    background-image: url("form_parts/windows98.png");
+}
+
+.profile_page > header {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile_page > header > h1 {
+    font-size: 40px;
+    font-family: 'Press Start 2P', cursive;
+    color: var(--text_light);
+    text-decoration: underline;
+    backdrop-filter: blur(20px);
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.profile_page > main {
+    width: 100%;
+    border-radius: 0;
+    background-color: var(--background_main);
+    border-top: 2px solid var(--border);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.profile_page > .image {
+    background: var(--border);
+    width: 30%;
+    border-radius: 0;
+    border-top-right-radius: 20px;
+}
+
+.profile_page > main > h2 {
+    font-family: 'Press Start 2P', cursive;
+
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: var(--text_light);
+    background-color: var(--h2);
+}
+
+.profile_page > main > section {
+    width: 90%;
+    background-color: var(--background_section);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 20px;
+
+}
+
+.profile_page > main > section > article {
+    height: 200px;
+    width: 200px;
+    background-color: var(--background_article);
+    transition: 0.2s;
+}
+
+.profile_page > main > section > article:hover {
+    box-shadow: 10px 10px 0px var(--border);    
+    transform: scale(1.04);
+    transition: 0.2s;
+}
+
+.profile_page > main > section > article > h3 {
+    width: 100%;
+    background-color: var(--button);
+    color: var(--text_light);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.profile_page > main > section > article:hover > h3 {
+    background-color: var(--hover);
+    transition: 0.2s;
+}
+
+.profile_page > main > section > article > p {
+    width: 90%;
+    margin: auto;
+}
+
+.profile_page > main > section > .new_form {
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+
+    background-color: var(--button);
+    color: var(--text_light);
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Press Start 2P', cursive;
+    transition: 0.2s; 
+}
+
+
+.profile_page > main > section > .new_form:hover {
+    background-color: var(--hover);
+    transition: 0.2s;
+    transform: scale(1.04);
+    box-shadow: 10px 10px 0px var(--border);  
+}
+
+.form_body > main > h2 {
     width: 90%;
     text-align: center;
     padding: 20px;
@@ -69,7 +192,7 @@ body > main > h2 {
     font-family: 'Press Start 2P', cursive;
 }
 
-body > main > section {
+.form_body > main > section {
     width: 90%;
     background-color: var(--background_section);
     border-bottom: 2px solid var(--border);
@@ -79,7 +202,7 @@ body > main > section {
     justify-content: center;
     row-gap: 10px;
 }
-body > nav > section{
+.form_body > nav > section{
     display:flex;
     align-items: flex-start;
     flex-direction: column; 
@@ -99,7 +222,7 @@ body>nav>section>p{
     background-color: rgb(195, 198, 202);
 }
 
-body > main > section > h3 {
+.form_body > main > section > h3 {
     background-color: var(--button);
     color: var(--text_light);
     padding: 5px;
@@ -107,17 +230,17 @@ body > main > section > h3 {
     width: 100%;
 }
 
-body > main > section > p {
+.form_body > main > section > p {
     width: 100%;
 }
 
-body > main > section > address {
+.form_body > main > section > address {
     width: 100%;
     display: flex;
 
 }
 
-body > main > section > address > p {
+.form_body > main > section > address > p {
     border-radius: 20px;
     padding: 5px;
     color: var(--text_light);
@@ -126,7 +249,7 @@ body > main > section > address > p {
 }
 
 
-body > main > section > form {
+.form_body > main > section > form {
     width: 90%;
     min-width: 350px;
     margin: auto;
@@ -137,7 +260,7 @@ body > main > section > form {
     column-gap: 10px;
 }
 
-body > main > section > form > div {
+.form_body > main > section > form > div {
     grid-column-start: 1;
     grid-column-end: 3;
 

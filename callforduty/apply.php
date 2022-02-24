@@ -11,7 +11,7 @@ include "include/connect.php";
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     </head>
-    <body>
+    <body class="form_body">
         <main>
             <?php include "form_parts/generate_info.php"; ?>
             <h2>Spørsmål</h2>

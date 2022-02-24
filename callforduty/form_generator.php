@@ -12,7 +12,7 @@ include "form_parts/event_handler.php";
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     </head>
-    <body>
+    <body class="form_body">
         <main>
             <h2>Generelt</h2>
             <?php include "form_parts/basic.php";?>
