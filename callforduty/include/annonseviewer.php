@@ -1,7 +1,7 @@
 <section id="annonseviewer">
     <?php
 
-    include "connect.php";
+    //include "connect.php";
 
     $sql = "SELECT * FROM annonser JOIN login ON annonser.userID = login.id";
     $result = mysqli_query($conn, $sql);

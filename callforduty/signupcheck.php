@@ -23,9 +23,9 @@
                die();
             }
             else{
-
+                $hashed=password_hash($pass,PASSWORD_DEFAULT);
                 $sql="INSERT INTO login (user,mail,password) Values
-                (\"$name\",\"$mail\",\"$pass\")";
+                (\"$name\",\"$mail\",\"$hashed\")";
             $r=mysqli_query($conn,$sql);
             if(isset($r)){
                 echo "Bruker laget";
