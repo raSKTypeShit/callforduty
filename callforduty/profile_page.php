@@ -11,9 +11,38 @@
     <meta charset="UTF-8">
     <title>Call for duty - Profile page</title>
     <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
+</head>
+<body class="profile_page">
+    <header>
+        <h1>Profile page</h1>
+    </header>
+    <form action="image_upload.php" method="post" class="image">
+        <input type="file" name="fileToUpload">
+        <input type="submit" value="Upload Imae" name="submit">    
+    </form>
+    <main>
+        <h2>Ads</h2>
+        <section>
+<?php
+    //include "connect.php";
+
+    $sql = "SELECT * FROM annonser WHERE userID=" . $userID;
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result))
+    {
+            while($row = mysqli_fetch_assoc($result))
+            {
+                echo "<article><h3>" . $row["title"] . "</h3><p>" . $row["descr"] . "</p></article>";
+            }
+        }
+    mysqli_close($conn);
+?>
+        <a href="form_generator.php" class="new_form">+</a>
+        </section>
+    </main>
 </body>
 </html>
 
