@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username   = "root";
-$password   = "";
+$password   = "root";
 $database   = "callforduty";
 session_start();
 // Create connection
