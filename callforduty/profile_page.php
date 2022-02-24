@@ -56,7 +56,7 @@ for ($i = 0; $i < count($fileTypes); $i++) {
     {
             while($row = mysqli_fetch_assoc($result))
             {
-                echo "<article><h3>" . $row["title"] . "</h3><p>" . $row["descr"] . "</p></article>";
+                echo "<a href='' class='dataredirect'><article><h3>" . $row["title"] . "</h3><p>" . $row["descr"] . "</p></article>";
             }
         }
     mysqli_close($conn);

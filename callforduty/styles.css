@@ -124,20 +124,20 @@
 
 }
 
-.profile_page > main > section > article {
+.profile_page > main > section > .dataredirect > article {
     height: 200px;
     width: 200px;
     background-color: var(--background_article);
     transition: 0.2s;
 }
 
-.profile_page > main > section > article:hover {
+.profile_page > main > section > .dataredirect:hover > article {
     box-shadow: 10px 10px 0px var(--border);    
     transform: scale(1.04);
     transition: 0.2s;
 }
 
-.profile_page > main > section > article > h3 {
+.profile_page > main > section > .dataredirect > article > h3 {
     width: 100%;
     background-color: var(--button);
     color: var(--text_light);
@@ -147,7 +147,7 @@
     transition: 0.2s;
 }
 
-.profile_page > main > section > article:hover > h3 {
+.profile_page > main > section > .dataredirect:hover > article > h3 {
     background-color: var(--hover);
     transition: 0.2s;
 }
