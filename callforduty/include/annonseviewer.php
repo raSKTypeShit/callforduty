@@ -11,7 +11,7 @@
         <label for="inputId">Id</label>
         <input id="inputId" type="number" name="id">
         <label for="inputName">Søk</label>
-        <input id="inputName" type="text" name="title">
+        <input id="inputName" type="text" name="sokeord">
         <input type="submit" value="Søk">
     </form>
     <?php
@@ -59,21 +59,24 @@
         array_push($params, $_GET["id"]);
     }
 
-    // Title is spesified
-    if($_GET["title"])
+    // Sokeord is spesified
+    if($_GET["sokeord"])
     {
         if($firstParam)
         {
-            $sql .= " WHERE annonser.title LIKE ?";
+            $sql .= " WHERE (annonser.title LIKE ? OR annonser.descr LIKE ?)";
             $firstParam = false;
         }
         else
         {
-            $sql .= " AND annonser.title LIKE ?";
+            $sql .= " AND (annonser.title LIKE ? OR annonser.descr LIKE ?)";
         }
         array_push($paramTypes, "s");
-        array_push($params, "%" . $_GET["title"] . "%");
+        array_push($paramTypes, "s");
+        array_push($params, "%" . $_GET["sokeord"] . "%");
+        array_push($params, "%" . $_GET["sokeord"] . "%");
     }
+    
     
     mysqli_stmt_prepare($statement, $sql);
 
