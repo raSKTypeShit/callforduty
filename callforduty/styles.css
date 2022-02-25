@@ -63,7 +63,7 @@
 
 .profile_page > header {
     width: 100%;
-    height: 200px;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,20 +124,20 @@
 
 }
 
-.profile_page > main > section > article {
+.profile_page > main > section > .dataredirect > article {
     height: 200px;
     width: 200px;
     background-color: var(--background_article);
     transition: 0.2s;
 }
 
-.profile_page > main > section > article:hover {
+.profile_page > main > section > .dataredirect:hover > article {
     box-shadow: 10px 10px 0px var(--border);    
     transform: scale(1.04);
     transition: 0.2s;
 }
 
-.profile_page > main > section > article > h3 {
+.profile_page > main > section > .dataredirect > article > h3 {
     width: 100%;
     background-color: var(--button);
     color: var(--text_light);
@@ -147,7 +147,7 @@
     transition: 0.2s;
 }
 
-.profile_page > main > section > article:hover > h3 {
+.profile_page > main > section > .dataredirect:hover > article > h3 {
     background-color: var(--hover);
     transition: 0.2s;
 }
@@ -207,21 +207,35 @@
     align-items: flex-start;
     flex-direction: column; 
 }
+/* menu*/
 body>nav>section>a{
     font-family:'Press Start 2P', cursive;
     font-size: larger;
     margin:4px;
-    background-color: rgb(195, 198, 202); 
-}
-body>nav>section>a:hover{
-    font-size: 30px;
-    background-color:rgb(195, 198, 202);
-    color:black;
-}
-body>nav>section>p{
-    background-color: rgb(195, 198, 202);
+    background-color: white; 
 }
 
+body>nav>p{
+    background-color: rgb(195, 198, 202);
+    padding:4px;
+}
+body>nav{
+    display:inline-block;
+    border: 2px solid black;
+}
+
+body>nav>section{
+    display:none;
+    position:absolute;
+    z-index: 1;
+}
+body>nav:hover section{
+    background-color:rgb(195, 198, 202);
+    border: 3px solid black;
+    display:flex;
+    align-items: flex-start;
+    flex-direction: column; 
+}
 .form_body > main > section > h3 {
     background-color: var(--button);
     color: var(--text_light);

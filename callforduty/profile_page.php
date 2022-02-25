@@ -3,6 +3,7 @@
 
     $userID = $_SESSION["id"];
     $user   = $_SESSION["user"];
+
 ?>
 
 <!DOCTYPE html>
@@ -14,13 +15,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 </head>
+
 <body class="profile_page">
+<?php
+
+$fileTypes = ["jpg", "png", "jpeg", "gif"];
+$targetDir = "images/profile/" . $userID;
+for ($i = 0; $i < count($fileTypes); $i++) {
+    if (file_exists($targetDir . "." . $fileTypes[$i])) {
+        echo "<style>.profile_page {
+            background-image: url('" . $targetDir . "." . $fileTypes[$i] . "');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;}
+        
+        </style>";
+    }
+}
+
+?>
     <header>
         <h1>Profile page</h1>
     </header>
-    <form action="image_upload.php" method="post" class="image">
-        <input type="file" name="fileToUpload">
-        <input type="submit" value="Upload Imae" name="submit">    
+    <form action="img_upload.php" method="post" enctype="multipart/form-data" class="image">
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="submit" value="Upload Image" name="submit">
     </form>
     <main>
         <h2>Ads</h2>
@@ -35,7 +56,7 @@
     {
             while($row = mysqli_fetch_assoc($result))
             {
-                echo "<article><h3>" . $row["title"] . "</h3><p>" . $row["descr"] . "</p></article>";
+                echo "<a href='' class='dataredirect'><article><h3>" . $row["title"] . "</h3><p>" . $row["descr"] . "</p></article>";
             }
         }
     mysqli_close($conn);

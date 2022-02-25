@@ -13,10 +13,10 @@
             $mail=$_POST["mail"];
             $pass=$_POST["password"];
             $result="SELECT * FROM login
-                    WHERE user=\"$name\" AND
-                    mail=\"$mail\" ";
+                    WHERE user=\"$name\" OR
+                    mail=\"$mail\"  ";
             $check=mysqli_query($conn,$result);
-            //sjekker om det eksistere en bruker med samme bedrift og mail
+            //sjekker om det eksistere en bruker med samme bedrift 
             if(mysqli_num_rows($check)==1){
                echo "This user already exists. Use another name or mail";
                header("refresh:2; url=index.php");

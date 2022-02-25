@@ -99,7 +99,9 @@ if (isset($event) && $event == 4) {
 
         }
         include "unset_session_vars.php";
-        //header("Location: index.php");
+                
+        echo "Form uploaded";
+        header("refresh:5;url=profile_page.php");
         exit();
     } else {
         echo '<h2 style="background-color:var(--neg);">Noen verdier er ikke fylt ut</h2>'; 
