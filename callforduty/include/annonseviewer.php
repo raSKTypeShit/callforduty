@@ -95,7 +95,7 @@
     $result = mysqli_stmt_get_result($statement);
 
 
-    if(mysqli_num_rows($result)&& isset($r))
+    if(mysqli_num_rows($result))
     {
         while($row = mysqli_fetch_assoc($result))
         {
