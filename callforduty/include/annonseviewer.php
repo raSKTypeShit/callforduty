@@ -26,7 +26,6 @@
 
     // Base sql query
     $sql = "SELECT * FROM annonser JOIN login ON annonser.userID = login.id";
-<<<<<<< HEAD
 
     // Area is spesified
     if($_GET["area"])
@@ -95,27 +94,12 @@
     // Get result from statement
     $result = mysqli_stmt_get_result($statement);
 
-=======
-    $result = mysqli_query($conn, $sql);
-    $link="SELECT * FROM containers JOIN annonser ON containers.formNR= annonser.id";
-    $r=mysqli_query($conn,$link);
->>>>>>> 1668913ca4edb94900c166d42ab8756502d95659
 
     if(mysqli_num_rows($result)&& isset($r))
     {
-<<<<<<< HEAD
         while($row = mysqli_fetch_assoc($result))
         {
             echo "<a href=\"" . $row["id"] . "\"><article><h1>" . $row["title"] . "</h1><p id=\"pArea\">" . $row["area"] . "</p><p id=\"pCompany\">" . $row["user"] . "</p><p id=\"pDesc\">" . $row["descr"] . "</p></article></a>";
-=======
-            while($row = mysqli_fetch_assoc($r)){
-                $lnk=$row["formNR"];
-            }
-            while($row = mysqli_fetch_assoc($result))
-            {
-                echo "<a href=apply.php?formNR=$lnk><article><h1>" . $row["title"] . "</h1><p id=\"pArea\">" . $row["area"] . "</p><p id=\"pCompany\">" . $row["user"] . "</p><p id=\"pDesc\">" . $row["descr"] . "</p></article></a>";
-            }
->>>>>>> 1668913ca4edb94900c166d42ab8756502d95659
         }
     }
 
