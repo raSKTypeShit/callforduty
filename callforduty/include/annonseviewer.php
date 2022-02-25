@@ -10,8 +10,8 @@
         </datalist>
         <label for="inputId">Id</label>
         <input id="inputId" type="number" name="id">
-        <label for="inputName">Name</label>
-        <input id="inputName" type="text" name="name">
+        <label for="inputName">Søk</label>
+        <input id="inputName" type="text" name="title">
         <input type="submit" value="Søk">
     </form>
     <?php
@@ -59,20 +59,20 @@
         array_push($params, $_GET["id"]);
     }
 
-    // Name is spesified
-    if($_GET["name"])
+    // Title is spesified
+    if($_GET["title"])
     {
         if($firstParam)
         {
-            $sql .= " WHERE annonser.name = ?";
+            $sql .= " WHERE annonser.title LIKE ?";
             $firstParam = false;
         }
         else
         {
-            $sql .= " AND annonser.name = ?";
+            $sql .= " AND annonser.title LIKE ?";
         }
         array_push($paramTypes, "s");
-        array_push($params, $_GET["name"]);
+        array_push($params, "%" . $_GET["title"] . "%");
     }
     
     mysqli_stmt_prepare($statement, $sql);
