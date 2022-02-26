@@ -34,6 +34,15 @@
     text-decoration: none;
 }
 
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+
 strong {
     font-weight: bold;
 }
@@ -91,6 +100,41 @@ strong {
     justify-content: center;
     gap: 20px;
 }
+
+.data_viewer > main > section > article {
+    width: 90%;
+    background-color: var(--background_article);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.data_viewer > main > section > article > h3 {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 3px solid var(--border);
+}
+
+.data_viewer > main > section > article > ul {
+    width: 30%;
+    min-width: 100px;
+    background-color: var(--button);
+    padding: 10px;
+    list-style-position: inside;
+}
+
+.data_viewer > main > section > article > ul > li {
+    width: 100%;
+    color: var(--text_light);
+}
+
+.data_viewer > main > section > article > svg {
+    background-color: var(--background_input);
+}
+
 
 .data_viewer > main > h2 {
     font-family: 'Press Start 2P', cursive;

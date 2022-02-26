@@ -23,14 +23,9 @@ $fileTypes = ["jpg", "png", "jpeg", "gif"];
 $targetDir = "images/profile/" . $userID;
 for ($i = 0; $i < count($fileTypes); $i++) {
     if (file_exists($targetDir . "." . $fileTypes[$i])) {
-        echo "<style>.profile_page {
-            background-image: url('" . $targetDir . "." . $fileTypes[$i] . "');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 100%;}
-        
+        echo "
+        <style>.profile_page {
+            background-image: url('" . $targetDir . "." . $fileTypes[$i] . "');}
         </style>";
     }
 }

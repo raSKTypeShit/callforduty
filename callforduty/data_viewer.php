@@ -22,6 +22,9 @@
         header('Location: index.php'); 
         exit();
     }
+
+    $diff_types = ["Tekst", "Ja/nei", "Avkrysning", "Flervalg", "Numerisk", "Fil"];
+    $types_opt  = [2, 3];
 ?>
 
 <!DOCTYPE html>
@@ -51,26 +54,43 @@
 
         <section>
 <?php
-
 $sql = "SELECT title, descr, COLOR, area FROM annonser WHERE id=" . $formNR;
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
-
     echo "
     <p><strong>Tittel:</strong>" . $row["title"] . "</p>
     <p><strong>Lokasjon:</strong> " . $row["area"] . "</p>
     <p><strong>Fargekode:</strong> " . $row["COLOR"] . "</p>
     <p><strong>Beskrivelse av jobb: </strong>" . $row["descr"] . "</p>";
-
-
 } else { echo "0 results"; }
-
-
 ?>
         </section>
         <h2>Statistikk</h2>
+        <section>
+<?php
+
+$sql = "SELECT id, question, qtype, nr FROM containers WHERE formNR=" . $formNR . " ORDER BY NR ASC";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "<article>
+        <h3>Spørsmål: " . $row["question"] . "</h3>
+
+        <ul>
+            <li>Nummer: " . ($row["nr"]+1) . "</li>
+            <li>Type respons: " . $diff_types[$row["qtype"]] . "</li>
+        </ul>
+        <svg height='200px' width='60%'>
+        </svg>
+        </article>";
+    }
+} else { echo "0 results"; }
+
+?>
+        </section>
     </main>
 </body>
 </html>
