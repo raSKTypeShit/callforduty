@@ -1,5 +1,5 @@
 <?php
 
-echo '<input type="file" name="q' . $row["id"] . '">';
+echo '<input type="file" name="q' . $row["nr"] . '">';
 
 ?>

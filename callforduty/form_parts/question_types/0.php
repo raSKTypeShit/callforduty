@@ -1,5 +1,5 @@
 <?php
 
-echo '<textarea name="q' . $row["id"] . '" rows="5"></textarea>';
+echo '<textarea name="q' . $row["nr"] . '" rows="5"></textarea>';
 
 ?>
