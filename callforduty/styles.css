@@ -34,6 +34,10 @@
     text-decoration: none;
 }
 
+strong {
+    font-weight: bold;
+}
+
 .form_body {
     background-color: var(--background_body);
     background-image: url("form_parts/windows98.png");
@@ -88,6 +92,17 @@
     gap: 20px;
 }
 
+.data_viewer > main > h2 {
+    font-family: 'Press Start 2P', cursive;
+
+    width: 90%;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    color: var(--text_light);
+    background-color: var(--h2);
+}
+
 .data_viewer > main > .buttons > div {
     width: 200px;
     height: 100px;
@@ -95,6 +110,29 @@
     background-color: var(--button);
     transition: 0.2s;
 }
+
+.data_viewer > main > .buttons > div > button {
+    width: 200px;
+    height: 100px;
+    font-size: 15x;
+    font-weight: bold;
+
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+
+    background-color: var(--button);
+    color: var(--text_light);
+    transition: 0.2s;
+}
+
+.data_viewer > main > .buttons > div > button:hover {
+    background-color: var(--hover);
+    box-shadow: 10px 10px 0px var(--border);    
+    transform: scale(1.04);
+    transition: 0.2s;
+}
+
+
 
 .data_viewer > main > .buttons > div:hover {
     background-color: var(--hover);
