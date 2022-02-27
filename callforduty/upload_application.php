@@ -20,9 +20,15 @@ if (isset($_POST["formNR"]) && isset($_POST["mail"]) && isset($_POST["startID"])
 
     $x = $startID;
     while (isset($_POST["q" . $x])) {
+        $value = $_POST["q" . $x];
+        if (is_array($value)) {
+            for ($n=0; $n < count($value); $n++) {
+                $sql .= "INSERT INTO answers (applicantID, containerID, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $value[$n] . "');";
+            }
 
-        $sql = "INSERT INTO answers (applicantID, containerID, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $_POST["q" . $x] . "');";
-        $x++;
+        } else {
+            $sql .= "INSERT INTO answers (applicantID, containerID, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $value . "');";
+        } $x++;
     }
     if (mysqli_multi_query($conn, $sql)) {
         echo "Application published!";
