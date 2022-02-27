@@ -24,7 +24,8 @@
     }
 
     $diff_types = ["Tekst", "Ja/nei", "Avkrysning", "Flervalg", "Numerisk", "Fil"];
-    $types_opt  = [2, 3];
+    $mult_choice  = [1, 2, 3];
+    $additional_types = [2, 3];
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +61,7 @@ $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
     echo "
-    <p><strong>Tittel:</strong>" . $row["title"] . "</p>
+    <p><strong>Tittel:</strong> " . $row["title"] . "</p>
     <p><strong>Lokasjon:</strong> " . $row["area"] . "</p>
     <p><strong>Fargekode:</strong> " . $row["COLOR"] . "</p>
     <p><strong>Beskrivelse av jobb: </strong>" . $row["descr"] . "</p>";
@@ -81,11 +82,46 @@ if (mysqli_num_rows($result) > 0) {
 
         <ul>
             <li>Nummer: " . ($row["nr"]+1) . "</li>
-            <li>Type respons: " . $diff_types[$row["qtype"]] . "</li>
-        </ul>
-        <svg height='200px' width='60%'>
-        </svg>
-        </article>";
+            <li>Type respons: " . $diff_types[$row["qtype"]] . "</li>";
+
+        if (in_array($row["qtype"], $mult_choice)) {
+            $show = [];
+            $countVal = [];
+
+            if ($row["qtype"] == 1) {
+                $show = ["Ja", "Nei"];
+                $countVal = ["Ja", "Nei"];
+            }
+
+            if (in_array($row["qtype"], $additional_types)) {
+                $sql2 = "SELECT additional.info AS answer, additional.id AS value FROM additional, containers
+                WHERE additional.containerNR = containers.id 
+                AND containers.formNR = " . $formNR . " 
+                AND containers.NR=" . $row["nr"];
+
+                $result2 = mysqli_query($conn, $sql2);
+                if (mysqli_num_rows($result2) > 0) {
+                    while ($row2 = mysqli_fetch_assoc($result2)) {
+                        array_push($show, $row2["answer"]);
+                        array_push($countVal, $row2["value"]);
+                    }
+                }
+
+            }
+
+            echo "<li>Valg:<ol>";
+            for ($i = 0; $i < count($show); $i++) {
+                echo "<li>" . $show[$i] . ": " . $countVal[$i] . "</li>";
+            }
+            echo "</ol></li>";
+
+            echo "</ul>
+            <svg height='200px' width='60%'>
+            </svg>
+            </article>";
+        } else {
+            echo "</ul>";
+        } echo "</article>";
     }
 } else { echo "0 results"; }
 

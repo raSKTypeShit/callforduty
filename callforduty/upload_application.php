@@ -2,10 +2,10 @@
 
 include "include/connect.php";
 
-if (isset($_POST["formNR"]) && isset($_POST["mail"])) {
+if (isset($_POST["formNR"]) && isset($_POST["mail"]) && isset($_POST["startID"])) {
     $formNR = intval($_POST["formNR"]);
-
     $mail  = $_POST["mail"];
+    $startID = $_POST["startID"];
 
     $sql = "INSERT INTO applicants (mail, formNR)
     VALUES ('" . $mail . "', '" . $formNR . "')";
@@ -18,10 +18,10 @@ if (isset($_POST["formNR"]) && isset($_POST["mail"])) {
 
     $sql = "";
 
-    $x = 0;
+    $x = $startID;
     while (isset($_POST["q" . $x])) {
 
-        $sql = "INSERT INTO answers (applicantID, questionNR, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $_POST["q" . $x] . "');";
+        $sql = "INSERT INTO answers (applicantID, containerID, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $_POST["q" . $x] . "');";
         $x++;
     }
     if (mysqli_multi_query($conn, $sql)) {

@@ -7,6 +7,7 @@ echo "<div class='mail'><label>Mail</label><input type='mail' name='mail' placeh
 
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
+        if (!isset($startID)) {$startID = $row["id"];}
         echo "<div class='question'><label>" . $row["question"] . "</label><div>";
 
         $questiontype = "form_parts/question_types/" . $row["qtype"] . ".php";
@@ -18,6 +19,7 @@ if (mysqli_num_rows($result) > 0) {
 
 echo "</section>        
 <input type='hidden' name='formNR' value='" . $formNR . "'>
+<input type='hidden' name='startID' value='" . $startID . "'>
 <input type='submit' name='submit' value='Ferdig'></form>";
 
 $diff_types = ["Tekst", "Ja/nei", "Avkrysning", "Flervalg", "Numerisk", "Fil"];
