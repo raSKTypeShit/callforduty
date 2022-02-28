@@ -118,16 +118,14 @@ strong {
     border-bottom: 3px solid var(--border);
 }
 
-.data_viewer > main > section > article > ul {
+.data_viewer > main > section > article > div {
     width: 30%;
     min-width: 100px;
     background-color: var(--button);
     padding: 10px;
-    list-style-position: inside;
 }
 
-.data_viewer > main > section > article > ul > li {
-    width: 100%;
+article > div > table {
     color: var(--text_light);
 }
 

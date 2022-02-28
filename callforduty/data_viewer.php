@@ -80,9 +80,9 @@ if (mysqli_num_rows($result) > 0) {
         echo "<article>
         <h3>Spørsmål: " . $row["question"] . "</h3>
 
-        <ul>
-            <li>Nummer: " . ($row["nr"]+1) . "</li>
-            <li>Type respons: " . $diff_types[$row["qtype"]] . "</li>";
+        <div><table>
+            <tr><td>▇</td><td>Nummer:</td><td>" . ($row["nr"]+1) . "</td></td>
+            <tr><td>▇</td><td>Type respons:</td><td>" . $diff_types[$row["qtype"]] . "</td></td>";
 
         if (in_array($row["qtype"], $mult_choice)) {
             $show = [];
@@ -111,7 +111,6 @@ if (mysqli_num_rows($result) > 0) {
 
             }
 
-            echo "<li>Valg:<ol>";
             for ($i = 0; $i < count($show); $i++) {
                 $sql2 = "SELECT COUNT(*) AS a FROM answers WHERE answers.answer = '" . $countVal[$i] . "' AND answers.containerID = " . $row["id"] . " GROUP BY answers.answer;";
                 $result2 = mysqli_query($conn, $sql2);
@@ -123,30 +122,27 @@ if (mysqli_num_rows($result) > 0) {
                 array_push($count, $amount);
                 $rrgb = [rand(0, 255), rand(0, 255), rand(0, 255)];
                 array_push($rgbs, $rrgb);
-                echo "<li style='color:rgb(" . $rrgb[0] . ", " . $rrgb[1] . ", " . $rrgb[2] . ");'>⬤ <strong>" . $show[$i] . ": " . $amount . "</strong></li>";
+                echo "<tr><td style='color:rgb(" . $rrgb[0] . ", " . $rrgb[1] . ", " . $rrgb[2] . ");'>⬤</td><td>" . $show[$i] . ":</td><td>" . $amount . "</td></tr>";
             }
-            echo "</ol></li>";
+            echo "</table></div>";
 
-            echo '</ul>
-            <svg height="200" width="60%" viewBox="0 0 20 20">
-            <circle r="10" cx="10" cy="10" fill="white" />';
+            echo '
+            <svg height="200" width="60%" viewBox="0 0 22 22">
+            <circle r="10" cx="11" cy="11" fill="white" />';
             $sum  = array_sum($count);
             $delta = 100/$sum;
             $past_sum = 0;
             for ($i = 0; $i < count($show); $i++) {
                 echo '
-                    <circle r="5" cx="10" cy="10" fill="transparent"
+                    <circle r="5" cx="11" cy="11" fill="transparent"
                             stroke="rgb(' . $rgbs[$i][0] . ', ' . $rgbs[$i][1] . ', ' . $rgbs[$i][2] . ')"
                             stroke-width="10"
                             stroke-dasharray="calc(' . (100-$past_sum*$delta) . '* 31.4 / 100) 31.4"
-                            transform="rotate(-90) translate(-20)" />';
+                            transform="rotate(-90) translate(-22)" />';
                 $past_sum += $count[$i];
                 }
-            echo '</svg>
-            </article>';
-        } else {
-            echo "</ul>";
-        } echo "</article>";
+            echo '</svg>';  
+        } else {echo '</table></div>';} echo "</article>";
     }
 } else { echo "0 results"; }
 
