@@ -422,6 +422,23 @@ body>nav:hover section{
     background-color: var(--background_question);
 }
 
+.form_body > main > section > form > .question {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.form_body > main > section > form > .question > div {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.form_body > main > section > form > .question > label {
+    font-weight: bold;
+    width: 100%;
+}
+
 input, textarea, select {
     outline: none;
 }
@@ -461,27 +478,6 @@ input:focus, textarea:focus, select:focus {
 }
 
 
-form > .question {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-form > .question > label {
-    font-weight: bold;
-    width: 100%;
-}
-
-form > .mail {
-    display: grid;
-    grid-template-columns: 20% 80%;
-    justify-content: center;
-}
-
-form > .question > div {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-}
 
 /*
     For annonseviewer

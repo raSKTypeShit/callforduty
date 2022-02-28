@@ -3,7 +3,7 @@ $sql = "SELECT id, question, qtype, nr FROM containers WHERE formNR=" . $formNR 
 $result = mysqli_query($conn, $sql);
 
 echo "<section><form action='upload_application.php' method='post'>";
-echo "<div class='mail'><label>Mail</label><input type='mail' name='mail' placeholder='Eksempel: søt.bestemor@gmail.com'></div>";
+echo "<div class='question'><label>Mail</label><div><input type='mail' name='mail' placeholder='Eksempel: søt.bestemor@gmail.com'></div></div>";
 
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
