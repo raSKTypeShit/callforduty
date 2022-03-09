@@ -15,6 +15,7 @@
             <input id="inputName" type="text" name="sokeord">
             <input type="submit" value="Søk">
         </form>
+        <main>
         <?php
 
         //include "connect.php";
@@ -98,7 +99,6 @@
         // Get result from statement
         $result = mysqli_stmt_get_result($statement);
 
-
         if(mysqli_num_rows($result))
         {
             while($row = mysqli_fetch_assoc($result))
@@ -110,6 +110,7 @@
         
         mysqli_close($conn);
         ?>
+        </main>
     </section>
     <?php
         echo "<footer id=\"annonseviewerFooter\"><p>" . mysqli_num_rows($result) . "</p></footer>";

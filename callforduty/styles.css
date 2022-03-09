@@ -485,10 +485,11 @@ input:focus, textarea:focus, select:focus {
 #annonseviewer {
     border: 1px solid black;
     display: flex;
+    flex-direction: column;
     width: 80vw;
     margin-left: 10vw;
-    justify-content: space-evenly;
-    align-items: space-evenly;
+    justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
     background-color: rgb(85, 170, 170);
 }
@@ -496,13 +497,26 @@ input:focus, textarea:focus, select:focus {
 #annonseviewer > section {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    /*width: 20%;*/
 }
 
 #annonseviewer > section > form {
     width: 20vw;
 }
 
-#annonseviewer > section > a > article {
+/*#annonseviewer > section > main > a > article {
+    width: 20vw;
+    height: 20vw;
+}*/
+
+#annonseviewer > section > main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#annonseviewer > section > main > a > article {
     width: 20vw;
     height: 20vw;
     border-top: 2px solid white;
@@ -516,7 +530,7 @@ input:focus, textarea:focus, select:focus {
     margin-bottom: 5%;
 }
 
-#annonseviewer > section > a > article > h1 {
+#annonseviewer > section > main > a > article > h1 {
     font-size: x-large;
     margin-top: 0;
     padding-left: 5%;
@@ -526,7 +540,7 @@ input:focus, textarea:focus, select:focus {
     grid-row: 1 / 2;
 }
 
-#annonseviewer > section > a > article > p {
+#annonseviewer > section > main > a > article > p {
     color: black;
     margin-top: 0;
     margin-bottom: 5%;
