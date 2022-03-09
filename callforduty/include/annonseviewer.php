@@ -25,8 +25,8 @@
         // Init statement
         $statement = mysqli_stmt_init($conn);
 
-        // Base sql query
-        $sql = "SELECT * FROM annonser JOIN login ON annonser.userID = login.id";
+    // Base sql query
+    $sql = "SELECT annonser.id AS annonseids, userID, title, descr, COLOR, area FROM annonser JOIN login ON  annonser.userID= login.id";
 
         // Area is spesified
         if($_GET["area"])
@@ -103,7 +103,7 @@
         {
             while($row = mysqli_fetch_assoc($result))
             {
-                echo "<a href=\"" . $row["id"] . "\"><article><h1>" . $row["title"] . "</h1><p id=\"pArea\">" . $row["area"] . "</p><p id=\"pCompany\">" . $row["user"] . "</p><p id=\"pDesc\">" . $row["descr"] . "</p></article></a>";
+                echo "<a href=\callforduty/callforduty/apply.php?formNR=" . $row["annonseids"]."><article><h1>" . $row["title"] . "</h1><p id=\"pArea\">" . $row["area"] . "</p><p id=\"pCompany\">" . $row["user"] . "</p><p id=\"pDesc\">" . $row["descr"] . "</p></article></a>";
             }
         }
 

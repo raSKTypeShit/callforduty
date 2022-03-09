@@ -23,14 +23,9 @@ $fileTypes = ["jpg", "png", "jpeg", "gif"];
 $targetDir = "images/profile/" . $userID;
 for ($i = 0; $i < count($fileTypes); $i++) {
     if (file_exists($targetDir . "." . $fileTypes[$i])) {
-        echo "<style>.profile_page {
-            background-image: url('" . $targetDir . "." . $fileTypes[$i] . "');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            width: 100%;}
-        
+        echo "
+        <style>.profile_page {
+            background-image: url('" . $targetDir . "." . $fileTypes[$i] . "');}
         </style>";
     }
 }
@@ -56,7 +51,7 @@ for ($i = 0; $i < count($fileTypes); $i++) {
     {
             while($row = mysqli_fetch_assoc($result))
             {
-                echo "<a href='' class='dataredirect'><article><h3>" . $row["title"] . "</h3><p>" . $row["descr"] . "</p></article>";
+                echo "<a href='data_viewer.php?formNR=" . $row["id"] . "' class='dataredirect'><article><h3>" . $row["title"] . "</h3><p>" . $row["descr"] . "</p></article></a>";
             }
         }
     mysqli_close($conn);
