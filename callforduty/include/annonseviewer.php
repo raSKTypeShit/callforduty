@@ -27,7 +27,7 @@
         $statement = mysqli_stmt_init($conn);
 
     // Base sql query
-    $sql = "SELECT annonser.id AS annonseids, userID, title, descr, COLOR, area FROM annonser JOIN login ON  annonser.userID= login.id";
+    $sql = "SELECT annonser.id AS annonseids, userID, user, title, descr, COLOR, area FROM annonser JOIN login ON  annonser.userID= login.id";
 
         // Area is spesified
         if($_GET["area"])
