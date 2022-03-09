@@ -44,10 +44,8 @@
         <h2>Settings</h2>
         <section class="buttons">
             <div><button onclick="navigator.clipboard.writeText('localhost/callforduty/callforduty/apply.php?formNR=<?php echo $formNR ?>');">Copy URL</button></div>
-            <div>Upload images</div>
             <a href="<?php echo "apply.php?formNR=" . $formNR; ?>"><div>View form</div></a>
             <div>Public</div>
-            <div>Delete</div>
             <div>Enkeltresponser</div>
         </section>
 
