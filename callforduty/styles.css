@@ -365,7 +365,16 @@ form > .question > div {
     background-color: rgb(85, 170, 170);
 }
 
-#annonseviewer > a > article {
+#annonseviewer > section {
+    display: flex;
+    flex-direction: row;
+}
+
+#annonseviewer > section > form {
+    width: 20vw;
+}
+
+#annonseviewer > section > a > article {
     width: 20vw;
     height: 20vw;
     border-top: 2px solid white;
@@ -379,7 +388,7 @@ form > .question > div {
     margin-bottom: 5%;
 }
 
-#annonseviewer > a > article > h1 {
+#annonseviewer > section > a > article > h1 {
     font-size: x-large;
     margin-top: 0;
     padding-left: 5%;
@@ -389,7 +398,7 @@ form > .question > div {
     grid-row: 1 / 2;
 }
 
-#annonseviewer > a > article > p {
+#annonseviewer > section > a > article > p {
     color: black;
     margin-top: 0;
     margin-bottom: 5%;
