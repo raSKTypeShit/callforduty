@@ -11,6 +11,8 @@
             </datalist>
             <label for="inputId">Id</label>
             <input id="inputId" type="number" name="id">
+            <label for="inputNokkel">Nøkkelord</label>
+            <input id="inputNokkel" type="text" name="nokkelord">
             <label for="inputName">Søk</label>
             <input id="inputName" type="text" name="sokeord">
             <input type="submit" value="Søk">
