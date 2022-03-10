@@ -498,7 +498,6 @@ input:focus, textarea:focus, select:focus {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /*width: 20%;*/
 }
 
 #annonseviewer > section > form {
@@ -563,4 +562,5 @@ input:focus, textarea:focus, select:focus {
     background-color: white;
     grid-column: 1 / 3;
     grid-row: 3 / 4;
+    overflow: hidden;
 }
