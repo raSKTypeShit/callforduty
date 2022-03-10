@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <?php include "include/navbar.php"; ?>
     <form action="signupcheck.php" method="post">
         <label for="name">Bedriftnavn</label>
         <input id="name" name="name">
