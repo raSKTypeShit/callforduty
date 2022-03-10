@@ -113,6 +113,6 @@
         </main>
     </section>
     <?php
-        echo "<footer id=\"annonseviewerFooter\"><p>" . mysqli_num_rows($result) . "</p></footer>";
+        echo "<footer id=\"annonseviewerFooter\"><p>" . mysqli_num_rows($result) . " resultater</p></footer>";
     ?>
 </section>
