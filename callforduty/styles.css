@@ -153,6 +153,33 @@ article > div > table {
     transition: 0.2s;
 }
 
+.data_viewer > main > .buttons > a {
+    width: 200px;
+    height: 100px;
+
+    background-color: var(--button);
+    transition: 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    line-height: 100px;
+
+    font-family: 'Press Start 2P', cursive;
+
+    background-color: var(--button);
+    color: var(--text_light);
+}
+
+.data_viewer > main > .buttons > a:hover {
+    background-color: var(--hover);
+    box-shadow: 10px 10px 0px var(--border);    
+    transform: scale(1.04);
+    transition: 0.2s;
+}
+
+
 .data_viewer > main > .buttons > div > button {
     width: 200px;
     height: 100px;
