@@ -11,8 +11,8 @@
             </datalist>
             <label for="inputId">Id</label>
             <input id="inputId" type="number" name="id">
-            <label for="inputNokkel">Nøkkelord</label>
-            <input id="inputNokkel" type="text" name="nokkelord">
+            <!--<label for="inputNokkel">Nøkkelord</label>
+            <input id="inputNokkel" type="text" name="nokkelord">-->
             <label for="inputName">Søk</label>
             <input id="inputName" type="text" name="sokeord">
             <input type="submit" value="Søk">
@@ -30,6 +30,16 @@
 
     // Base sql query
     $sql = "SELECT annonser.id AS annonseids, userID, user, title, descr, COLOR, area, public FROM annonser JOIN login ON  annonser.userID= login.id";
+        // Nokkelord is set
+        /*if($_GET["nokkelord"])
+        {
+            $sql .= " JOIN keywords ON fromNR = annonseids"; //WHERE keyword = ?";
+            //$firstParam = false;
+
+            //array_push($paramTypes, "s");
+            //array_push($params, $_GET["area"]);
+        }*/
+
         // Area is spesified
         if($_GET["area"])
         {
