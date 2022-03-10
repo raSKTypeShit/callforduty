@@ -21,6 +21,7 @@
 </head>
 
 <body class="profile_page">
+<?php include "include/navbar.php"; ?>
 <?php
 
 $fileTypes = ["jpg", "png", "jpeg", "gif"];

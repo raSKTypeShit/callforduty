@@ -48,7 +48,7 @@
 </head>
 
 <body class="data_viewer">
-
+    <?php include "include/navbar.php"; ?>
     <main>
         <h2>Buttons</h2>
         <section class="buttons">
