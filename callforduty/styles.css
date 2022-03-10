@@ -21,6 +21,8 @@
 
     --neg: red;
     --neghover: rgb(184, 2, 2);
+
+    --windows: #55AAAA;
 }
 
 
@@ -41,7 +43,6 @@ body {
     background-size: cover;
     width: 100%;
 }
-
 
 strong {
     font-weight: bold;
@@ -590,4 +591,25 @@ input:focus, textarea:focus, select:focus {
     grid-column: 1 / 3;
     grid-row: 3 / 4;
     overflow: hidden;
+}
+
+body > .navbar {
+    width: 100%;
+    background-color: var(--windows);
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid var(--border);
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0;
+}
+
+body > .navbar > a > img {
+    border: none;
+    filter: brightness(1);
+    transition: 0.2s;
+}
+
+body > .navbar > a > img:hover {
+    filter: brightness(1.3);
+    transition: 0.2s;
 }
