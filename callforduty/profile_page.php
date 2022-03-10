@@ -1,9 +1,13 @@
 <?php
     include "include/connect.php";
 
-    $userID = $_SESSION["id"];
-    $user   = $_SESSION["user"];
-
+    if (isset($_SESSION["id"])) {
+        $userID = $_SESSION["id"];
+        $user   = $_SESSION["user"];
+    } else {
+        header('Location: index.php'); 
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
