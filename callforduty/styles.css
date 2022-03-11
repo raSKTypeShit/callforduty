@@ -530,6 +530,16 @@ input:focus, textarea:focus, select:focus {
 
 #annonseviewer > section > form {
     width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#annonseviewer > section > form > section {
+    margin-bottom: 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 /*#annonseviewer > section > main > a > article {
