@@ -43,14 +43,14 @@
 
     while($row=mysqli_fetch_assoc($a)){
         $i=0;
+        $questionID = 999;
         echo "<tr>";
         echo "<td>".$row["mail"]."</td>";
 
         $answers="SELECT applicantID,containerID, answer FROM answers WHERE applicantID=".$row["id"];
         $answ=mysqli_query($conn,$answers);
         while($rw=mysqli_fetch_assoc($answ)){
-            if (!isset($questionID)) {
-                $i = 0;
+            if ($questionID == 999) {
                 echo "<td>";
             } else if (isset($questionID) && $questionID==$rw["containerID"]) {
                 echo ", ";
@@ -58,6 +58,7 @@
                 echo "</td><td>";
                 $i++;
             }
+
             if(in_array($lists[$i], $checker)) {
                 $sqlask = "SELECT info FROM additional WHERE id=" . $rw["answer"];
                 $query = mysqli_query($conn, $sqlask);
