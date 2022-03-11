@@ -30,14 +30,17 @@
     $lists=[];
     
     echo "<tr>";
-    echo "<th> Mail </th>";    
+    echo "<th> Mail </th>";   
+     
     while($row=mysqli_fetch_assoc($w)){
         
         echo "<th>".$row["question"]."</th>";
-        array_push($lists,$row["qtype"]);
+        array_push($lists, $row["qtype"]);
     }
     echo "</tr>";
     
+    var_dump($lists);
+
     while($row=mysqli_fetch_assoc($a)){
         $i=0;
         echo "<tr>";
@@ -46,17 +49,26 @@
         $answers="SELECT applicantID,containerID, answer FROM answers WHERE applicantID=".$row["id"];
         $answ=mysqli_query($conn,$answers);
         while($rw=mysqli_fetch_assoc($answ)){
-            if(in_array($lists[$i],$checker)){
+            if (!isset($questionID)) {
+                $i = 0;
+                echo "<td>";
+            } else if (isset($questionID) && $questionID==$rw["containerID"]) {
+                echo ", ";
+            } else {
+                echo "</td><td>";
+                $i++;
+            }
+            if(in_array($lists[$i], $checker)) {
                 $sqlask = "SELECT info FROM additional WHERE id=" . $rw["answer"];
                 $query = mysqli_query($conn, $sqlask);
                 if (mysqli_num_rows($query) == 1) {
-                    $rowwwww = mysqli_fetch_assoc($result);
-                    echo "<td>".$rowwwww["info"]."</td>";
+                    $rowwwww = mysqli_fetch_assoc($query);
+                    echo $rowwwww["info"];
                 }
-            }
-            echo "<td>".$rw["answer"]."</td>";
+            } else {echo $rw["answer"];}
+            $questionID = $rw["containerID"];
         }
-        echo "</tr>";
+        echo "</td></tr>";
     }
 
     while($row=mysqli_fetch_assoc($r)){

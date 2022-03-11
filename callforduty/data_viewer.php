@@ -58,7 +58,7 @@
             <div>Public</div>
             <div>
                 <a href="<?php echo "enkeltrespons.php?formNR=". $formNR;?>">
-                Enkeltresponser</div>
+                Enkeltresponser</a></div>
 =======
             <a href="<?php echo "apply.php?formNR=" . $formNR; ?>">View form</a>
             <div>Enkeltresponser</div>
