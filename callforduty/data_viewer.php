@@ -53,9 +53,17 @@
         <h2>Buttons</h2>
         <section class="buttons">
             <div><button onclick="navigator.clipboard.writeText('localhost/callforduty/callforduty/apply.php?formNR=<?php echo $formNR ?>');">Copy URL</button></div>
+<<<<<<< HEAD
+            <a href="<?php echo "apply.php?formNR=" . $formNR; ?>"><div>View form</div></a>
+            <div>Public</div>
+            <div>
+                <a href="<?php echo "enkeltrespons.php?formNR=". $formNR;?>">
+                Enkeltresponser</div>
+=======
             <a href="<?php echo "apply.php?formNR=" . $formNR; ?>">View form</a>
             <div>Enkeltresponser</div>
             <form action="<?php echo "data_viewer.php?formNR=" . $formNR; ?>" method="post"><input type="hidden" name="update_state" value="<?php echo $show; ?>"><input type="submit" name="Public" value="Public" style="Background-color:<?php echo $public_colors[$show]; ?>;"></form>
+>>>>>>> f63922c277c6dc7144c06cd0934e20c7af840e05
         </section>
 
         <h2>Info</h2>

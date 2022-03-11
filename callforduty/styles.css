@@ -523,9 +523,15 @@ input:focus, textarea:focus, select:focus {
 }
 
 #annonseviewer > section {
+    /*
     display: flex;
     flex-direction: row;
+<<<<<<< HEAD
+    */
+    display:block;
+=======
     justify-content: space-between;
+>>>>>>> f63922c277c6dc7144c06cd0934e20c7af840e05
 }
 
 #annonseviewer > section > form {
@@ -609,8 +615,6 @@ body > .navbar {
     border: none;
     border-radius: 0;
     border-bottom: 2px solid var(--border);
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0;
 }
 
 body > .navbar > a > img {
