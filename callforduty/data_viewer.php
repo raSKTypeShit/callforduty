@@ -14,18 +14,27 @@
             $row = mysqli_fetch_assoc($result);
             if ($row["userID"] == $userID) {
                 $properInfo = 1;
+                $show = $row["public"];
             } 
         }
     }
 
-    if ($properInfo != 1) {
+    if ($properInfo != 1) { //Sjekker at et form er valgt samt at bruker er annonsør
         header('Location: index.php'); 
         exit();
+    }
+
+    if (isset($_POST["update_state"])) { //Oppdater public-statusen til annonsen
+        $show = (int)(!$_POST["update_state"]);
+        $sql = "UPDATE annonser SET public=" . $show . " WHERE id=" . $formNR;
+        mysqli_query($conn, $sql);
     }
 
     $diff_types = ["Tekst", "Ja/nei", "Avkrysning", "Flervalg", "Numerisk", "Fil"];
     $mult_choice  = [1, 2, 3];
     $additional_types = [2, 3];
+
+    $public_colors = ["Red", "Green"];
 ?>
 
 <!DOCTYPE html>
@@ -39,16 +48,22 @@
 </head>
 
 <body class="data_viewer">
-
+    <?php include "include/navbar.php"; ?>
     <main>
-        <h2>Settings</h2>
+        <h2>Buttons</h2>
         <section class="buttons">
             <div><button onclick="navigator.clipboard.writeText('localhost/callforduty/callforduty/apply.php?formNR=<?php echo $formNR ?>');">Copy URL</button></div>
+<<<<<<< HEAD
             <a href="<?php echo "apply.php?formNR=" . $formNR; ?>"><div>View form</div></a>
             <div>Public</div>
             <div>
                 <a href="<?php echo "enkeltrespons.php?formNR=". $formNR;?>">
                 Enkeltresponser</div>
+=======
+            <a href="<?php echo "apply.php?formNR=" . $formNR; ?>">View form</a>
+            <div>Enkeltresponser</div>
+            <form action="<?php echo "data_viewer.php?formNR=" . $formNR; ?>" method="post"><input type="hidden" name="update_state" value="<?php echo $show; ?>"><input type="submit" name="Public" value="Public" style="Background-color:<?php echo $public_colors[$show]; ?>;"></form>
+>>>>>>> f63922c277c6dc7144c06cd0934e20c7af840e05
         </section>
 
         <h2>Info</h2>

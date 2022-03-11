@@ -13,6 +13,7 @@ include "form_parts/event_handler.php";
 
     </head>
     <body class="form_body">
+        <?php include "include/navbar.php"; ?>
         <main>
             <h2>Generelt</h2>
             <?php include "form_parts/basic.php";?>
