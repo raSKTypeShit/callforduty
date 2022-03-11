@@ -615,8 +615,6 @@ body > .navbar {
     border: none;
     border-radius: 0;
     border-bottom: 2px solid var(--border);
-    position: fixed; /* Set the navbar to fixed position */
-    top: 0;
 }
 
 body > .navbar > a > img {
