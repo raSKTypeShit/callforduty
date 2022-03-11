@@ -494,8 +494,11 @@ input:focus, textarea:focus, select:focus {
 }
 
 #annonseviewer > section {
+    /*
     display: flex;
     flex-direction: row;
+    */
+    display:block;
 }
 
 #annonseviewer > section > form {

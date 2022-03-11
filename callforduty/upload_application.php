@@ -35,6 +35,7 @@ if (isset($_POST["formNR"]) && isset($_POST["mail"]) && isset($_POST["startID"])
       } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
       }
+      header("refresh:5; url=index.php");
 
 }
 

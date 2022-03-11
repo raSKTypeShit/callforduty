@@ -46,7 +46,9 @@
             <div><button onclick="navigator.clipboard.writeText('localhost/callforduty/callforduty/apply.php?formNR=<?php echo $formNR ?>');">Copy URL</button></div>
             <a href="<?php echo "apply.php?formNR=" . $formNR; ?>"><div>View form</div></a>
             <div>Public</div>
-            <div>Enkeltresponser</div>
+            <div>
+                <a href="<?php echo "enkeltrespons.php?formNR=". $formNR;?>">
+                Enkeltresponser</div>
         </section>
 
         <h2>Info</h2>
