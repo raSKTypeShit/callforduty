@@ -1,20 +1,28 @@
 <section id="annonseviewer">
     <section>
         <form action="?" method="get">
-            <label for="inputArea">Område</label>
-            <input id="inputArea" list="areaList" name="area">
+            <section>
+                <label for="inputArea">Område</label>
+                <input id="inputArea" list="areaList" name="area">
+            </section>
             <datalist id="areaList">
                 <option value="Randaberg">
                 <option value="Stavanger">
                 <option value="Sola">
                 <option value="Trenches">
             </datalist>
-            <label for="inputId">Id</label>
-            <input id="inputId" type="number" name="id">
-            <label for="inputNokkel">Nøkkelord</label>
-            <input id="inputNokkel" type="text" name="nokkelord">
-            <label for="inputName">Søk</label>
-            <input id="inputName" type="text" name="sokeord">
+            <section>
+                <label for="inputId">Id</label>
+                <input id="inputId" type="number" name="id">
+            </section>
+            <section>
+                <label for="inputNokkel">Nøkkelord</label>
+                <input id="inputNokkel" type="text" name="nokkelord">
+            </section>
+            <section>
+                <label for="inputName">Søk</label>
+                <input id="inputName" type="text" name="sokeord">
+            </section>
             <input type="submit" value="Søk">
         </form>
         <main>
@@ -30,6 +38,16 @@
 
     // Base sql query
     $sql = "SELECT annonser.id AS annonseids, userID, user, title, descr, COLOR, area, public FROM annonser JOIN login ON  annonser.userID= login.id";
+        /* Nokkelord is set
+        ifisset($_GET["nokkelord"])
+        {
+            $sql .= " JOIN keywords ON fromNR = annonseids"; //WHERE keyword = ?";
+            //$firstParam = false;
+
+            //array_push($paramTypes, "s");
+            //array_push($params, $_GET["area"]);
+        }*/
+
         // Area is spesified
         if($_GET["area"])
         {
