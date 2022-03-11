@@ -28,6 +28,8 @@
         <main>
         <?php
 
+        //phpinfo();
+
         //include "connect.php";
         $paramTypes = [];
         $params = [];
@@ -49,7 +51,7 @@
         }*/
 
         // Area is spesified
-        if($_GET["area"])
+        if(isset($_GET["area"]) && $_GET["area"])
         {
             if($firstParam)
             {
@@ -65,7 +67,7 @@
         }
 
         // Id is spesified
-        if($_GET["id"])
+        if(isset($_GET["id"]) && $_GET["id"])
         {
             if($firstParam)
             {
@@ -81,7 +83,7 @@
         }
 
         // Sokeord is spesified
-        if($_GET["sokeord"])
+        if(isset($_GET["sokeord"]) && $_GET["sokeord"])
         {
             if($firstParam)
             {
@@ -110,7 +112,10 @@
         }
 
         // Call bind_param via call_user_func
-        call_user_func_array("mysqli_stmt_bind_param", $bindParams);
+        if(count($bindParams) > 2)
+        {
+            call_user_func_array("mysqli_stmt_bind_param", $bindParams);
+        }
 
         // Execute statement
         mysqli_stmt_execute($statement);

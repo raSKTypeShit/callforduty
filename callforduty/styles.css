@@ -523,15 +523,11 @@ input:focus, textarea:focus, select:focus {
 }
 
 #annonseviewer > section {
-    /*
+    
     display: flex;
     flex-direction: row;
-<<<<<<< HEAD
-    */
-    display:block;
-=======
-    justify-content: space-between;
->>>>>>> f63922c277c6dc7144c06cd0934e20c7af840e05
+    
+    /*display:block;*/
 }
 
 #annonseviewer > section > form {
