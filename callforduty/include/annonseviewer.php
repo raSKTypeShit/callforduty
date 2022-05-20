@@ -100,6 +100,8 @@
             array_push($params, "%" . $_GET["sokeord"] . "%");
         }
         
+        // Kun hente de som er public
+        $sql .= " WHERE annonser.public = 1";
         
         mysqli_stmt_prepare($statement, $sql);
 
@@ -127,9 +129,7 @@
         {
             while($row = mysqli_fetch_assoc($result))
             {
-                if ($row["public"] == 1) { 
-                    echo "<a href=\callforduty/callforduty/apply.php?formNR=" . $row["annonseids"]."><article><h1>" . $row["title"] . "</h1><p id=\"pArea\">" . $row["area"] . "</p><p id=\"pCompany\">" . $row["user"] . "</p><p id=\"pDesc\">" . $row["descr"] . "</p></article></a>";
-                }
+                echo "<a href=\callforduty/callforduty/apply.php?formNR=" . $row["annonseids"]."><article><h1>" . $row["title"] . "</h1><p id=\"pArea\">" . $row["area"] . "</p><p id=\"pCompany\">" . $row["user"] . "</p><p id=\"pDesc\">" . $row["descr"] . "</p></article></a>";
             }
         }
 
