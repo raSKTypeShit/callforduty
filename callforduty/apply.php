@@ -1,8 +1,8 @@
-<!DOCTYPE html>
 <?php
 include "include/connect.php";
 
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Call for duty - Apply</title>

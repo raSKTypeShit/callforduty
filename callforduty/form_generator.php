@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <?php
 //session_start();
 include "include/connect.php";
 include "form_parts/event_handler.php";
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Call for duty - Form generator</title>

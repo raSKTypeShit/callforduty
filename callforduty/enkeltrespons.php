@@ -1,3 +1,6 @@
+<?php
+include "include/connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +14,6 @@
 <?php
     $formnr=$_GET["formNR"];
 
-    include "include/connect.php";
     $sql="SELECT * FROM applicants JOIN answers ON applicants.id=answers.applicantID AND applicants.formNR=$formnr";
     $r=mysqli_query($conn,$sql);
     

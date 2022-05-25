@@ -1,4 +1,6 @@
-
+<?php
+    include "include/connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,6 @@
 <body>
     
     <?php
-    include "include/connect.php";
     if(isset($_POST["user"])&& isset($_POST["password"])){
         $user=$_POST["user"];
         $pass=$_POST["password"];
@@ -34,10 +35,10 @@
             
         }
     }
-        header("refresh:2; url=index.php");
-        die();
+        
         ?>
 </body>
+<meta http-equiv="refresh" content="2;url=index.php" />
 </html>
 <?php
 mysqli_close($conn);

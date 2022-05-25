@@ -1,3 +1,6 @@
+<?php
+include "include/connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
      <head>
@@ -6,7 +9,6 @@
      </head>
      <body>
          <?php
-          include "include/connect.php";
          //sjekker om det finnes data i inputene.
          if(isset($_POST["name"]) && isset($_POST["mail"])&& isset($_POST["password"])){ 
             $name=$_POST["name"];

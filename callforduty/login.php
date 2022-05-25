@@ -1,3 +1,4 @@
+<?php include "include/navbar.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include "include/navbar.php"; ?>
     <form action="logincheck.php" method="post">
         <label for="user">Brukernavn</label>
         <input id="user"name="user">

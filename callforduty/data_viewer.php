@@ -18,7 +18,7 @@
             } 
         }
     }
-
+    
     if ($properInfo != 1) { //Sjekker at et form er valgt samt at bruker er annonsør
         header('Location: index.php'); 
         exit();
@@ -29,7 +29,7 @@
         $sql = "UPDATE annonser SET public=" . $show . " WHERE id=" . $formNR;
         mysqli_query($conn, $sql);
     }
-
+    
     $diff_types = ["Tekst", "Ja/nei", "Avkrysning", "Flervalg", "Numerisk", "Fil"];
     $mult_choice  = [1, 2, 3];
     $additional_types = [2, 3];
@@ -39,10 +39,10 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Call for duty - Data viewer</title>
-    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <title>Call for duty - Data viewer</title>
+        <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     
 </head>
@@ -53,17 +53,9 @@
         <h2>Buttons</h2>
         <section class="buttons">
             <div><button onclick="navigator.clipboard.writeText('localhost/callforduty/callforduty/apply.php?formNR=<?php echo $formNR ?>');">Copy URL</button></div>
-<<<<<<< HEAD
-            <a href="<?php echo "apply.php?formNR=" . $formNR; ?>"><div>View form</div></a>
-            <div>Public</div>
-            <div>
-                <a href="<?php echo "enkeltrespons.php?formNR=". $formNR;?>">
-                Enkeltresponser</a></div>
-=======
             <a href="<?php echo "apply.php?formNR=" . $formNR; ?>">View form</a>
             <div>Enkeltresponser</div>
             <form action="<?php echo "data_viewer.php?formNR=" . $formNR; ?>" method="post"><input type="hidden" name="update_state" value="<?php echo $show; ?>"><input type="submit" name="Public" value="Public" style="Background-color:<?php echo $public_colors[$show]; ?>;"></form>
->>>>>>> f63922c277c6dc7144c06cd0934e20c7af840e05
         </section>
 
         <h2>Info</h2>
