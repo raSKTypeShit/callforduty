@@ -2,6 +2,28 @@
     <section>
         <form action="?" method="get">
             <section>
+                <label for="selectOrder">Sorter</label>
+                <select id="selectOrder" name="order">
+                    <?php
+                        if(isset($_GET["order"]) && $_GET["order"])
+                        {
+                            if($_GET["order"] == "new")
+                            {
+                                echo "<option value=\"new\">Nyest først</option><option value=\"old\">Gamlest først</option>";
+                            }
+                            else if($_GET["order"] == "old")
+                            {
+                                echo "<option value=\"old\">Gamlest først</option><option value=\"new\">Nyest først</option>";
+                            }
+                        }
+                        else
+                        {
+                            echo "<option value=\"new\">Nyest først</option><option value=\"old\">Gamlest først</option>";
+                        }
+                    ?>
+                </select>
+            </section>
+            <section>
                 <label for="inputArea">Område</label>
                 <input id="inputArea" list="areaList" name="area">
             </section>
@@ -39,7 +61,7 @@
         $statement = mysqli_stmt_init($conn);
 
     // Base sql query
-    $sql = "SELECT annonser.id AS annonseids, userID, user, title, descr, COLOR, area, public FROM annonser JOIN login ON  annonser.userID= login.id";
+    $sql = "SELECT annonser.id AS annonseids, userID, user, title, descr, COLOR, area, public, date FROM annonser JOIN login ON  annonser.userID= login.id";
         /* Nokkelord is set
         ifisset($_GET["nokkelord"])
         {
@@ -102,6 +124,18 @@
         
         // Kun hente de som er public
         $sql .= " WHERE annonser.public = 1";
+
+        if(isset($_GET["order"]) && $_GET["order"])
+        {
+            if($_GET["order"] == "new")
+            {
+                $sql .= " ORDER BY date DESC";
+            }
+            else if($_GET["order"] == "old")
+            {
+                $sql .= " ORDER BY date ASC";
+            }
+        }
         
         mysqli_stmt_prepare($statement, $sql);
 
