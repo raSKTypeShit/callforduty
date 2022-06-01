@@ -68,6 +68,8 @@ include "include/connect.php";
                     $rowwwww = mysqli_fetch_assoc($query);
                     echo $rowwwww["info"];
                 }
+            } else if ($lists[$i] == 1) {
+                echo ["Ja", "Nei"][$rw["answer"]-1];
             } else {echo $rw["answer"];}
             $questionID = $rw["containerID"];
         }
