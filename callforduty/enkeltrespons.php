@@ -40,9 +40,6 @@ include "include/connect.php";
         array_push($lists, $row["qtype"]);
     }
     echo "</tr>";
-    
-    var_dump($lists);
-
     while($row=mysqli_fetch_assoc($a)){
         $i=0;
         $questionID = 999;
