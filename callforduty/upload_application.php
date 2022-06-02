@@ -47,5 +47,5 @@ if (isset($_POST["formNR"]) && isset($_POST["mail"]) && isset($_POST["startID"])
     <title>Upload application</title>
 </head>
 <body></body>
-<meta http-equiv="refresh" content="2;url=profile_page.php" />
+<meta http-equiv="refresh" content="2;url=index.php" />
 </html>
