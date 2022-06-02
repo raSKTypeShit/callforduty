@@ -382,6 +382,10 @@ article > div > table {
     flex-direction: column; 
 }
 /* menu*/
+body>.navbar{
+    display:inline-block;
+    border: 2px solid black;
+}
 body>.navbar>section>a{
     font-family:'Times New Roman', Times, serif;
     margin:4px;
@@ -393,10 +397,6 @@ body>.navbar>p{
     background-color: rgb(195, 198, 202);
     padding:4px;
     width:40px;
-}
-body>.navbar{
-    display:inline-block;
-    border: 2px solid black;
 }
 
 body>.navbar>section{
@@ -445,7 +445,7 @@ body>.navbar>section{
 }
 
 
-.form_body > main > section > form {
+.form_body > main > section > form, #signup {
     width: 90%;
     min-width: 350px;
     margin: auto;
@@ -454,6 +454,9 @@ body>.navbar>section{
     grid-template-columns: 1fr 5fr;
     row-gap: 10px;
     column-gap: 10px;
+}
+#signup, #login{
+    width:40%;
 }
 
 .form_body > main > section > form > div {

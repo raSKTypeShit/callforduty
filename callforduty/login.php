@@ -8,7 +8,7 @@
     </head>
     <body>
     <?php include "include/navbar.php"; ?>
-    <form action="logincheck.php" method="post">
+    <form id="login" action="logincheck.php" method="post">
         <label for="user">Brukernavn</label>
         <input id="user"name="user">
         <label for="password"> Passord </label>

@@ -8,11 +8,11 @@
 </head>
 <body>
     <?php include "include/navbar.php"; ?>
-    <form action="signupcheck.php" method="post">
+    <form  id="signup" action="signupcheck.php" method="post">
         <label for="name">Bedriftnavn</label>
-        <input id="name" name="name">
+        <input id="name" name="name" placeholder="For eksempel: Equinor">
         <label for="mail">Mail</label>
-        <input id="mail" name="mail">
+        <input id="mail" name="mail" placeholder="For eksempel: Ola.Nordmann@norge.org">
         <label for="password">Passord </label>
         <input id="password" name="password">
         <input type="submit" value="Lag bruker">
