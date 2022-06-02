@@ -368,28 +368,29 @@ article > div > table {
     flex-direction: column; 
 }
 /* menu*/
-body>nav>section>a{
+body>.navbar>section>a{
     font-family:'Press Start 2P', cursive;
-    font-size: larger;
     margin:4px;
+    font-size:larger;
     background-color: white; 
 }
 
-body>nav>p{
+body>.navbar>p{
     background-color: rgb(195, 198, 202);
     padding:4px;
+    width:20px;
 }
-body>nav{
+body>.navbar{
     display:inline-block;
     border: 2px solid black;
 }
 
-body>nav>section{
+body>.navbar>section{
     display:none;
     position:absolute;
     z-index: 1;
 }
-body>nav:hover section{
+body>#meny:hover section{
     background-color:rgb(195, 198, 202);
     border: 3px solid black;
     display:flex;
