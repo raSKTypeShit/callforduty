@@ -9,16 +9,20 @@
                         {
                             if($_GET["order"] == "new")
                             {
-                                echo "<option value=\"new\">Nyest først</option><option value=\"old\">Gamlest først</option>";
+                                echo "<option value=\"new\">Nyest først</option><option value=\"pop\">Populære</option><option value=\"old\">Gamlest først</option>";
                             }
                             else if($_GET["order"] == "old")
                             {
-                                echo "<option value=\"old\">Gamlest først</option><option value=\"new\">Nyest først</option>";
+                                echo "<option value=\"old\">Gamlest først</option><option value=\"pop\">Populære</option><option value=\"new\">Nyest først</option>";
+                            }
+                            else if($_GET["order"] == "pop")
+                            {
+                                echo "<option value=\"pop\">Populære</option><option value=\"new\">Nyest først</option><option value=\"old\">Gamlest først</option>";
                             }
                         }
                         else
                         {
-                            echo "<option value=\"new\">Nyest først</option><option value=\"old\">Gamlest først</option>";
+                            echo "<option value=\"pop\">Populære</option><option value=\"new\">Nyest først</option><option value=\"old\">Gamlest først</option>";
                         }
                     ?>
                 </select>
@@ -135,6 +139,14 @@
             {
                 $sql .= " ORDER BY date ASC";
             }
+            else if($_GET["order"] == "pop")
+            {
+                $sql .= " ORDER BY views DESC";
+            }
+        }
+        else
+        {
+            $sql .= " ORDER BY views DESC";
         }
         
         mysqli_stmt_prepare($statement, $sql);
