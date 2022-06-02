@@ -35,8 +35,6 @@ if (isset($_POST["formNR"]) && isset($_POST["mail"]) && isset($_POST["startID"])
       } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
       }
-      header("refresh:5; url=index.php");
-
 }
 ?>
 
@@ -46,7 +44,7 @@ if (isset($_POST["formNR"]) && isset($_POST["mail"]) && isset($_POST["startID"])
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Img upload</title>
+    <title>Upload application</title>
 </head>
 <body></body>
 <meta http-equiv="refresh" content="2;url=profile_page.php" />
