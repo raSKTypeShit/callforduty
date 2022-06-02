@@ -40,9 +40,6 @@ include "include/connect.php";
         array_push($lists, $row["qtype"]);
     }
     echo "</tr>";
-    
-    var_dump($lists);
-
     while($row=mysqli_fetch_assoc($a)){
         $i=0;
         $questionID = 999;
@@ -68,6 +65,8 @@ include "include/connect.php";
                     $rowwwww = mysqli_fetch_assoc($query);
                     echo $rowwwww["info"];
                 }
+            } else if ($lists[$i] == 1) {
+                echo ["Ja", "Nei"][$rw["answer"]-1];
             } else {echo $rw["answer"];}
             $questionID = $rw["containerID"];
         }
