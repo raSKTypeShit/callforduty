@@ -555,6 +555,10 @@ input:focus, textarea:focus, select:focus {
     flex-wrap: wrap;
 }
 
+#annonseviewer > section > main > a {
+    margin-left: 2.5%;
+}
+
 #annonseviewer > section > main > a > article {
     width: 20vw;
     height: 20vw;
