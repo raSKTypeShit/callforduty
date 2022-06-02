@@ -14,7 +14,7 @@ echo '
 echo "<p id=\"meny\"> Menu</p>";
 
     if (isset($_SESSION["user"])) {
-        echo "<section>";
+        echo "<section id=\"msection\">";
         echo "<p>HELLO ". $_SESSION["user"]."</p>";
         echo '<a href="profile_page.php"><img src="images/profile_page.png" height="' . $height . 'px"></a>';
         echo "<a href="."form_generator.php".">Lag søknader</a>";
@@ -23,7 +23,7 @@ echo "<p id=\"meny\"> Menu</p>";
         echo "</section>";
     }
     else{
-        echo "<section>
+        echo "<section id=\"msection\">
         <a href="."login.php"."> Login</a>";
         echo "<a href="."signup.php".">Create a user</a>
         </section>";
