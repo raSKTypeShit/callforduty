@@ -48,7 +48,16 @@ if ($uploadOk == 0) {
     echo "Sorry, there was an error uploading your file.";
   }
 }
-
-header("refresh:5;url=profile_page.php");
-exit();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Img upload</title>
+</head>
+<body></body>
+<meta http-equiv="refresh" content="2;url=profile_page.php" />
+</html>
