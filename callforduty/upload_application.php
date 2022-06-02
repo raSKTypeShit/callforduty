@@ -35,11 +35,17 @@ if (isset($_POST["formNR"]) && isset($_POST["mail"]) && isset($_POST["startID"])
       } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
       }
-      header("refresh:5; url=index.php");
-
 }
-
-
-
-
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload application</title>
+</head>
+<body></body>
+<meta http-equiv="refresh" content="2;url=index.php" />
+</html>

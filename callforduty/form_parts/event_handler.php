@@ -101,8 +101,7 @@ if (isset($event) && $event == 4) {
         include "unset_session_vars.php";
                 
         echo "Form uploaded";
-        header("refresh:5;url=profile_page.php");
-        exit();
+        $relocating = True; //rar hacky måte for å bruke html header siden php header IKKE FUNGerer
     } else {
         echo '<h2 style="background-color:var(--neg);">Noen verdier er ikke fylt ut</h2>'; 
     }

@@ -4,6 +4,10 @@ include "./include/color_functions.php";
 
 $formNR = intval($_GET["formNR"]);
 
+// View Count
+$sql = "UPDATE annonser SET views = views + 1 WHERE id = " . $formNR;
+mysqli_query($conn, $sql);
+
 $sql = "SELECT userID, title, descr, COLOR, area FROM annonser WHERE id=" . $formNR;
 $result = mysqli_query($conn, $sql);
 
