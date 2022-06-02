@@ -13,6 +13,13 @@ include "form_parts/event_handler.php";
 
     </head>
     <body class="form_body">
+        
+         <?php
+if (isset($relocating) && $relocating) {
+echo '<meta http-equiv="refresh" content="2;url=profile_page.php" />';
+}
+        ?>
+        
         <?php include "include/navbar.php"; ?>
         <main>
             <h2>Generelt</h2>
