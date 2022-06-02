@@ -383,7 +383,7 @@ article > div > table {
 }
 /* menu*/
 body>.navbar>section>a{
-    font-family:'Press Start 2P', cursive;
+    font-family:'Times New Roman', Times, serif;
     margin:4px;
     font-size:larger;
     background-color: white; 
