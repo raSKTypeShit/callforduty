@@ -10,7 +10,7 @@ include "include/connect.php";
     <title>Document</title>
 </head>
 <body>
-<table >
+<table>
 <?php
     $formnr=$_GET["formNR"];
 

@@ -154,6 +154,20 @@ article > div > table {
     transition: 0.2s;
 }
 
+.data_viewer > main > .buttons > div > form {
+    width: 100%;
+    height: 100%;
+}
+
+.data_viewer > main > .buttons > div > form > input[type="submit"] {
+    font-family: 'Press Start 2P', cursive;
+
+    width: 100%;
+    height: 100%;
+
+    transition: 0.2s;
+}
+
 .data_viewer > main > .buttons > a {
     width: 200px;
     height: 100px;
@@ -368,33 +382,41 @@ article > div > table {
     flex-direction: column; 
 }
 /* menu*/
-body>nav>section>a{
-    font-family:'Press Start 2P', cursive;
-    font-size: larger;
-    margin:4px;
-    background-color: white; 
-}
-
-body>nav>p{
-    background-color: rgb(195, 198, 202);
-    padding:4px;
-}
-body>nav{
+body>.navbar{
     display:inline-block;
     border: 2px solid black;
 }
+body>.navbar>section>a{
+    font-family:'Times New Roman', Times, serif;
+    margin:4px;
+    font-size:larger;
+    background-color: white; 
+}
 
-body>nav>section{
+body>.navbar>p{
+    background-color: rgb(195, 198, 202);
+    padding:4px;
+    width:40px;
+}
+
+body>.navbar>section{
     display:none;
     position:absolute;
     z-index: 1;
 }
-body>nav:hover section{
+#meny:hover + #msection{
     background-color:rgb(195, 198, 202);
     border: 3px solid black;
     display:flex;
     align-items: flex-start;
     flex-direction: column; 
+}
+#msection:hover{
+    background-color:rgb(195, 198, 202);
+    border: 3px solid black;
+    display:flex;
+    align-items: flex-start;
+    flex-direction: column;
 }
 .form_body > main > section > h3 {
     background-color: var(--button);
@@ -423,7 +445,7 @@ body>nav:hover section{
 }
 
 
-.form_body > main > section > form {
+.form_body > main > section > form, #signup {
     width: 90%;
     min-width: 350px;
     margin: auto;
@@ -432,6 +454,9 @@ body>nav:hover section{
     grid-template-columns: 1fr 5fr;
     row-gap: 10px;
     column-gap: 10px;
+}
+#signup, #login{
+    width:40%;
 }
 
 .form_body > main > section > form > div {

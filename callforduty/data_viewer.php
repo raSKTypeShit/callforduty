@@ -54,8 +54,8 @@
         <section class="buttons">
             <div><button onclick="navigator.clipboard.writeText('localhost/callforduty/callforduty/apply.php?formNR=<?php echo $formNR ?>');">Copy URL</button></div>
             <a href="<?php echo "apply.php?formNR=" . $formNR; ?>">View form</a>
-            <div>Enkeltresponser</div>
-            <form action="<?php echo "data_viewer.php?formNR=" . $formNR; ?>" method="post"><input type="hidden" name="update_state" value="<?php echo $show; ?>"><input type="submit" name="Public" value="Public" style="Background-color:<?php echo $public_colors[$show]; ?>;"></form>
+            <a href="enkeltrespons.php?formNR=<?php echo $formNR; ?>">Respons</a>
+            <div><form action="<?php echo "data_viewer.php?formNR=" . $formNR; ?>" method="post"><input type="hidden" name="update_state" value="<?php echo $show; ?>"><input type="submit" name="Public" value="Public" style="Background-color:<?php echo $public_colors[$show]; ?>;"></form></div>
         </section>
 
         <h2>Info</h2>

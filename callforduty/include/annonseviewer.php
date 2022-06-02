@@ -178,7 +178,6 @@
 
         // Get result from statement
         $result = mysqli_stmt_get_result($statement);
-
         if(mysqli_num_rows($result))
         {
             echo mysqli_num_rows($result);              //////DEBUGGGG
