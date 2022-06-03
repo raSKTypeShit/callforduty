@@ -457,6 +457,12 @@ body>.navbar>section{
 }
 #signup, #login{
     width:40%;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 5fr;
+    row-gap: 10px;
+    column-gap: 10px;
 }
 
 .form_body > main > section > form > div {
