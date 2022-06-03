@@ -169,7 +169,6 @@
         // Call bind_param via call_user_func
         if(count($bindParams) > 2)
         {
-            var_dump($bindParams);
             call_user_func_array("mysqli_stmt_bind_param", $bindParams);
         }
 
@@ -180,7 +179,6 @@
         $result = mysqli_stmt_get_result($statement);
         if(mysqli_num_rows($result))
         {
-            echo mysqli_num_rows($result);              //////DEBUGGGG
             while($row = mysqli_fetch_assoc($result))
             {
                 echo "<a href=\callforduty/callforduty/apply.php?formNR=" . $row["annonseids"]."><article><h1>" . $row["title"] . "</h1><p id=\"pArea\">" . $row["area"] . "</p><p id=\"pCompany\">" . $row["user"] . "</p><p id=\"pDesc\">" . $row["descr"] . "</p></article></a>";
