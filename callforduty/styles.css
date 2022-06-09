@@ -659,6 +659,7 @@ input:focus, textarea:focus, select:focus {
     grid-row: 1 / 2;
     font-family: "Press start 2P", cursive;
     overflow: auto;
+    border-radius: 0;
 }
 
 #annonseviewer > section > main > a > article > p {
