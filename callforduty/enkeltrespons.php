@@ -91,7 +91,6 @@ include "include/connect.php";
             echo "<script>
             
             let button" . $temp_app_id . " = document.getElementById(\"input" . $temp_app_id . "\");
-            console.log(\"button" . $temp_app_id . "\");
 
             button" . $temp_app_id . ".onclick = function() { window.open(\"mailto:" . $row["mail"] . "?subject=Innkalling til intervju&body=Hei, vi vil gjerne kalle deg inn til intervju hos oss den [DATO] ved vårt kontor ved [GATE]. Med vennlig hilsen " . $companyNavn . "\"); }
 
