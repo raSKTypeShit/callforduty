@@ -79,6 +79,23 @@ include "include/connect.php";
             
             else {echo $rw["answer"];}
             $questionID = $rw["containerID"];
+
+            // MAILKNAPP
+
+            $companyNavnSql = "SELECT login.user FROM login JOIN annonser ON annonser.userID = login.id WHERE annonser.id = " . $formnr;
+            $companyNavnResult = mysqli_query($conn, $companyNavnSql);
+            $companyNavn = mysqli_fetch_assoc($companyNavnResult)["user"];
+
+            echo "</td><td>";
+            echo "<input id=\"input" . $temp_app_id . "\" type=\"button\" value=\"Kall Inn\">";
+            echo "<script>
+            
+            let button" . $temp_app_id . " = document.getElementById(\"input" . $temp_app_id . "\");
+            console.log(\"button" . $temp_app_id . "\");
+
+            button" . $temp_app_id . ".onclick = function() { window.open(\"mailto:" . $row["mail"] . "?subject=Innkalling til intervju&body=Hei, vi vil gjerne kalle deg inn til intervju hos oss den [DATO] ved vårt kontor ved [GATE]. Med vennlig hilsen " . $companyNavn . "\"); }
+
+            </script>";
         }
         echo "</td></tr>";
     }
