@@ -181,7 +181,7 @@
         {
             while($row = mysqli_fetch_assoc($result))
             {
-                echo "<a href=\callforduty/callforduty/apply.php?formNR=" . $row["annonseids"]."><article><h1>" . $row["title"] . "</h1><p id=\"pArea\">" . $row["area"] . "</p><p id=\"pCompany\">" . $row["user"] . "</p><p id=\"pDesc\">" . $row["descr"] . "</p></article></a>";
+                echo "<a href=\callforduty/callforduty/apply.php?formNR=" . $row["annonseids"]."><article><h1 style='background-color:" . $row["COLOR"] . ";'>" . $row["title"] . "</h1><p id=\"pArea\">" . $row["area"] . "</p><p id=\"pCompany\">" . $row["user"] . "</p><p id=\"pDesc\">" . $row["descr"] . "</p></article></a>";
             }
         }
 

@@ -56,7 +56,7 @@ for ($i = 0; $i < count($fileTypes); $i++) {
     {
             while($row = mysqli_fetch_assoc($result))
             {
-                echo "<a href='data_viewer.php?formNR=" . $row["id"] . "' class='dataredirect'><article><h3>" . $row["title"] . "</h3><p>" . $row["descr"] . "</p></article></a>";
+                echo "<a href='data_viewer.php?formNR=" . $row["id"] . "' class='dataredirect'><article><h3 style='background-color:" . $row["COLOR"] . ";'>" . $row["title"] . "</h3><p>" . $row["descr"] . "</p></article></a>";
             }
         }
     mysqli_close($conn);
