@@ -19,22 +19,39 @@ if (isset($_POST["formNR"]) && isset($_POST["mail"]) && isset($_POST["startID"])
     $sql = "";
 
     $x = $startID;
-    while (isset($_POST["q" . $x])) {
-        $value = $_POST["q" . $x];
-        if (is_array($value)) {
-            for ($n=0; $n < count($value); $n++) {
-                $sql .= "INSERT INTO answers (applicantID, containerID, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $value[$n] . "');";
-            }
+    while (isset($_POST["q" . $x]) || isset($_FILES["q" . $x])) {
+        if (isset($_POST["q" . $x])) {
+            $value = $_POST["q" . $x];
+            if (is_array($value)) {
+                for ($n=0; $n < count($value); $n++) {
+                    $sql .= "INSERT INTO answers (applicantID, containerID, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $value[$n] . "');";
+                }
 
-        } else {
-            $sql .= "INSERT INTO answers (applicantID, containerID, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $value . "');";
-        } $x++;
+            } else {
+                $sql .= "INSERT INTO answers (applicantID, containerID, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $value . "');";
+            } 
+        } else if (isset($_FILES["q" . $x])) {
+            $target_dir = "form_parts/applicant_files/";
+            $imageFileType = strtolower(pathinfo($target_dir . basename($_FILES["q" . $x]["name"]), PATHINFO_EXTENSION));
+
+            $target_file = $target_dir . $applicantID . "_" . $x;
+
+            move_uploaded_file($_FILES["q" . $x]["tmp_name"], $target_file . "." . $imageFileType);
+
+            $sql .= "INSERT INTO answers (applicantID, containerID, answer) VALUES (" . $applicantID . ", " . $x . ", '" . $applicantID . "_" . $x . "." . $imageFileType . "');";
+
+        }
+        
+        $x++;
     }
+
     if (mysqli_multi_query($conn, $sql)) {
         echo "Application published!";
       } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-      }
+    }
+
+
 }
 ?>
 

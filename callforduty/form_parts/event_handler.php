@@ -55,8 +55,8 @@ include "retrieve_session_vars.php";
 if (isset($event) && $event == 4) {
     if (count($qst) > 0 && isset($basic)) {
         //Inset base info
-        $sql = "INSERT INTO annonser (userID, title, COLOR, descr, area, public) 
-        VALUES (" . $userID . ", '" . $basic[$types[0]] . "', '" . $basic[$types[1]] . "', '" . $basic[$types[2]] . "', '" . $basic[$types[4]] . "', 0);";
+        $sql = "INSERT INTO annonser (userID, title, COLOR, descr, area, public, views) 
+        VALUES (" . $userID . ", '" . $basic[$types[0]] . "', '" . $basic[$types[1]] . "', '" . $basic[$types[2]] . "', '" . $basic[$types[4]] . "', 0, 0);";
         
         if (mysqli_query($conn, $sql)) {$formNR = mysqli_insert_id($conn);
         } else { echo "Error: " . $sql . "<br>" . mysqli_error($conn);}

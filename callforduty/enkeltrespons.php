@@ -5,12 +5,16 @@ include "include/connect.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 <body>
-<table>
+    <?php
+        include "include/navbar.php";
+    ?>
+<table id="enkeltrespons">
 <?php
     $formnr=$_GET["formNR"];
 
@@ -46,7 +50,8 @@ include "include/connect.php";
         echo "<tr>";
         echo "<td>".$row["mail"]."</td>";
 
-        $answers="SELECT applicantID,containerID, answer FROM answers WHERE applicantID=".$row["id"];
+        $answers="SELECT id, applicantID,containerID, answer FROM answers WHERE applicantID=".$row["id"];
+        $temp_app_id = $row["id"];
         $answ=mysqli_query($conn,$answers);
         while($rw=mysqli_fetch_assoc($answ)){
             if ($questionID == 999) {
@@ -67,7 +72,12 @@ include "include/connect.php";
                 }
             } else if ($lists[$i] == 1) {
                 echo ["Ja", "Nei"][$rw["answer"]-1];
-            } else {echo $rw["answer"];}
+            } else if ($lists[$i] == 5) {
+                echo "<a href='form_parts/applicant_files/" . $rw["answer"] . "' download>Download</a>";
+            } 
+            
+            
+            else {echo $rw["answer"];}
             $questionID = $rw["containerID"];
         }
         echo "</td></tr>";

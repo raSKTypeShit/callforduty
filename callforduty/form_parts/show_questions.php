@@ -2,7 +2,7 @@
 $sql = "SELECT id, question, qtype, nr FROM containers WHERE formNR=" . $formNR . " ORDER BY NR ASC";
 $result = mysqli_query($conn, $sql);
 
-echo "<section><form action='upload_application.php' method='post'>";
+echo "<section><form action='upload_application.php' method='post' enctype='multipart/form-data'>";
 echo "<div class='question'><label>Mail</label><div><input type='mail' name='mail' placeholder='Eksempel: søt.bestemor@gmail.com'></div></div>";
 
 if (mysqli_num_rows($result) > 0) {
