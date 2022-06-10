@@ -14,7 +14,7 @@ include "include/connect.php";
     <body class="form_body">
         <main>
             <?php include "form_parts/generate_info.php"; ?>
-            <h2>Spørsmål</h2>
+            <h2 <?php echo "style='background-color:" . $row["COLOR"] . ";'"?>>Spørsmål</h2>
             <?php include "form_parts/show_questions.php"; ?>
         </main>
     </body>

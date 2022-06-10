@@ -19,21 +19,11 @@ if (mysqli_num_rows($result) == 1) {
 
     $rgb = convert_hex_to_rgb_list($row["COLOR"]);
     $bright = brighten($rgb, 0.1);
+    $dark = darken($rgb, 0.1);
 
-    echo "<h2>" . $row["title"] . "</h2>";
-    echo "<section><h3>Beskrivelse av jobb</h3><p>" . $row["descr"] . "</p>
-    <address><p>Lokasjon: " . $row["area"] . "</p><p>Bedrift: " . $username . "</p></address></section>";
-
-
-    echo "<style>
-    body > main > h2 {
-        background-color: " . $row["COLOR"] . ";
-    } 
-    body > main > section > h3 {
-        background-color: rgb(" . $bright[0] . ", " . $bright[1] . ", " . $bright[2] .");
-    }
-    </style>";
-
+    echo "<h2 style='background-color:" . $row["COLOR"] . "'>" . $row["title"] . "</h2>";
+    echo "<section><h3 style='background-color:rgb(" . $bright[0] . ", " . $bright[1] . ", " . $bright[2] . ");'>Beskrivelse av jobb</h3><p>" . $row["descr"] . "</p>
+    <address><p style='background-color:rgb(" . $dark[0] . ", " . $dark[1] . ", " . $dark[2] . ");'>Lokasjon: " . $row["area"] . "</p><p style='background-color:rgb(" . $dark[0] . ", " . $dark[1] . ", " . $dark[2] . ");'>Bedrift: " . $username . "</p></address></section>";
 
 } else { echo "0 results"; }
 
