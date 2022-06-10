@@ -36,7 +36,8 @@ include "include/connect.php";
     $lists=[];
     
     echo "<tr>";
-    echo "<th> Mail </th>";   
+    echo "<th> Mail </th>
+    <th> Kall inn </th>";   
      
     while($row=mysqli_fetch_assoc($w)){
         
@@ -53,6 +54,21 @@ include "include/connect.php";
         $answers="SELECT id, applicantID,containerID, answer FROM answers WHERE applicantID=".$row["id"];
         $temp_app_id = $row["id"];
         $answ=mysqli_query($conn,$answers);
+        
+        // MAILKNAPP
+        $companyNavnSql = "SELECT login.user FROM login JOIN annonser ON annonser.userID = login.id WHERE annonser.id = " . $formnr;
+        $companyNavnResult = mysqli_query($conn, $companyNavnSql);
+        $companyNavn = mysqli_fetch_assoc($companyNavnResult)["user"];
+
+        echo "<td>";
+        echo "<input id=\"input" . $temp_app_id . "\" type=\"button\" value=\"Kall Inn\">";
+        echo "<script>
+            
+        let button" . $temp_app_id . " = document.getElementById(\"input" . $temp_app_id . "\");
+
+        button" . $temp_app_id . ".onclick = function() { window.open(\"mailto:" . $row["mail"] . "?subject=Innkalling til intervju&body=Hei, vi vil gjerne kalle deg inn til intervju hos oss den [DATO] ved vårt kontor ved [GATE]. Med vennlig hilsen " . $companyNavn . "\"); }
+
+        </script> </td>";
         while($rw=mysqli_fetch_assoc($answ)){
             if ($questionID == 999) {
                 echo "<td>";
@@ -80,31 +96,9 @@ include "include/connect.php";
             else {echo $rw["answer"];}
             $questionID = $rw["containerID"];
 
-            // MAILKNAPP
 
-            $companyNavnSql = "SELECT login.user FROM login JOIN annonser ON annonser.userID = login.id WHERE annonser.id = " . $formnr;
-            $companyNavnResult = mysqli_query($conn, $companyNavnSql);
-            $companyNavn = mysqli_fetch_assoc($companyNavnResult)["user"];
-
-            echo "</td><td>";
-            echo "<input id=\"input" . $temp_app_id . "\" type=\"button\" value=\"Kall Inn\">";
-            echo "<script>
-            
-            let button" . $temp_app_id . " = document.getElementById(\"input" . $temp_app_id . "\");
-
-            button" . $temp_app_id . ".onclick = function() { window.open(\"mailto:" . $row["mail"] . "?subject=Innkalling til intervju&body=Hei, vi vil gjerne kalle deg inn til intervju hos oss den [DATO] ved vårt kontor ved [GATE]. Med vennlig hilsen " . $companyNavn . "\"); }
-
-            </script>";
         }
-        echo "</td></tr>";
-    }
-
-    while($row=mysqli_fetch_assoc($r)){
-        
-       /* echo "<tr>";
-        echo "<td>".$row["mail"]."</td>"; 
-        echo "<td>".$row["answer"]."</td>";
-        echo "</tr>";*/
+        echo "</tr>";
     }
 
 ?>

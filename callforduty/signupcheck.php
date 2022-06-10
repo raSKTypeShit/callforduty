@@ -32,13 +32,13 @@ include "include/connect.php";
             $r=mysqli_query($conn,$sql);
             if(isset($r)){
                 echo "Bruker laget";
-                header("refresh:2; url=index.php");
+                echo "<meta http-equiv=\"refresh\" content=\"2;url=index.php\" />";
                 die();
             }
 
             else{
                 echo "Noe gikk galt, prøv på nytt";
-                header("refresh:2; url=index.php");
+                echo "<meta http-equiv=\"refresh\" content=\"2;url=index.php\" />";
                 die();
             }
          }
